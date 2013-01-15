@@ -1,0 +1,23 @@
+Aihe: Tetris
+
+Tarkoituksena tässä projektissa on luoda uusi versio vanhasta klassikosta - Tetriksestä.
+Tetris on klassinen esimerkki neuvostoliittolaisesta luovuudesta, ja pelinä ehkä yksi
+niistä merkittävimmistä. Peli itsessään on yksinkertainen; tarkoituksena on asetella
+peliruudun ylälaidasta tippuvia palasia kasaksi niin, että saadaan muodostettua täysiä
+(laidasta laitaan ulottuvia) vaakarivejä. Tällöin vaakarivi katoaa, ja "tipauttaa"
+rivin päällä olevat palikat pykälää alemmas. Haastetta peliin lisää palojen eri muodot - 
+siksi peli vaatiikin pelaajalta hyvää hahmotuskykyä, sekä vaikeammilla tasoilla myös
+nopeutta.
+
+Toteutukseen tulee yksinkertaiset grafiikat, mutta ajatuksena olisi keksiä joku uusi
+"twisti" peliin, esimerkiksi räjähtäviä palikoita yms.
+
+
+
+Käyttäjät: kuka tahansa pelistä kiinnostunut
+
+Käyttäjän toiminnot:
+
+	- Pelaaja voi aloittaa pelin ja pelata sitä kunnes game over.
+	- Highscore -listan tarkistelu
+	- Mahdollisten asetusten muuttaminen (nopeus, vaikeus)
