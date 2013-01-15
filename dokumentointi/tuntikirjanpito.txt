@@ -1,0 +1,8 @@
+Tuntikirjanpito 
+Tommi Nikkanen
+
+Päivä			Aika (h)		Mitä?
+--------------- --------------- --------------------------------------------------------
+15.1.2013		1.5				Repon luominen ja projektin alustaminen
+
+
