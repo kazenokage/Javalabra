@@ -1,8 +1,9 @@
 Tuntikirjanpito 
 Tommi Nikkanen
 
-Päivä		Aika (h)		Mitä?
------------ --------------- --------------------------------------------------------
-15.1.2013	1.5				Repon luominen ja projektin alustaminen
-
+Päivä	    Aika (h)	    Mitä?
+----------- --------------- ---------------------------------------------------
+15.1.2013   1.5		    Repon luominen ja projektin alustaminen
+20.1.2013   1               Pelin rakenteen ideointia, luokkakaavio
+22.1.2013   4               Pelin rungon koodausta, luokkien luomista jne.
 
