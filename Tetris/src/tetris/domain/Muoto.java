@@ -13,6 +13,9 @@ public class Muoto {
     public Muoto(int alkuX, int alkuY, Suunta alkusuunta) {
         this.palat = new ArrayList<>();
         this.palat.add(new Pala(alkuX,alkuY));
+        this.palat.add(new Pala(alkuX,alkuY+10));
+        this.palat.add(new Pala(alkuX,alkuY+20));
+        this.palat.add(new Pala(alkuX,alkuY+20));
         this.suunta = alkusuunta;
         this.pituus = 3;
     }
@@ -37,22 +40,18 @@ public class Muoto {
             if(this.suunta == Suunta.YLOS) {
                 int x = this.palat.get(palat.size()-1).getX();
                 int y = this.palat.get(palat.size()-1).getY()-1;
-                this.palat.add(new Pala(x,y));
             }
             if(this.suunta == Suunta.ALAS) {
                 int x = this.palat.get(palat.size()-1).getX();
                 int y = this.palat.get(palat.size()-1).getY()+1;
-                this.palat.add(new Pala(x,y));
             }
             if(this.suunta == Suunta.VASEN) {
                 int x = this.palat.get(palat.size()-1).getX()-1;
                 int y = this.palat.get(palat.size()-1).getY();
-                this.palat.add(new Pala(x,y));
             }
             if(this.suunta == Suunta.OIKEA) {
                 int x = this.palat.get(palat.size()-1).getX()+1;
                 int y = this.palat.get(palat.size()-1).getY();
-                this.palat.add(new Pala(x,y));
             }
             
     }
@@ -64,6 +63,11 @@ public class Muoto {
             }
         }
         return false;
+    }
+    
+    @Override 
+    public String toString() {
+        return "Paloja"+this.palat.size();
     }
     
 }

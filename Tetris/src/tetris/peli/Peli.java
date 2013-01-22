@@ -1,4 +1,3 @@
-
 package tetris.peli;
 
 import java.awt.event.ActionEvent;
@@ -10,38 +9,57 @@ import tetris.Suunta;
 import tetris.domain.Muoto;
 
 public class Peli extends Timer implements ActionListener {
-    
+
     private List<Muoto> muodot;
     private int leveys;
     private int korkeus;
     private boolean jatkuu;
     private int nopeus;
-    
+    private Muoto aktiivinenMuoto;
     private int sykli = 0;
-    
-    
+
     public Peli() {
-        super(1000,null);
+        super(1000, null);
         this.muodot = new ArrayList<Muoto>();
         this.jatkuu = true;
         this.nopeus = 1000;
         
+        lisaaMuoto();
+        
         addActionListener(this);
         setInitialDelay(1000);
     }
-    
+
     public boolean jatkuu() {
         return jatkuu;
     }
-    
+
     public void lisaaMuoto() {
-        muodot.add(new Muoto(50,50,Suunta.ALAS));
+        Muoto uusiMuoto = new Muoto(50, 50, Suunta.ALAS);
+        muodot.add(uusiMuoto);
+        aktiivinenMuoto = uusiMuoto;
+
     }
     
+    public Muoto getAktiivinenMuoto() {
+        if (aktiivinenMuoto != null) {
+            return aktiivinenMuoto;
+        } 
+        return null;
+    }
+    
+    public List<Muoto> getKaikkiMuodot() {
+        return muodot;
+    }
+    
+    public void liikutaAktiivista() {
+        aktiivinenMuoto.liiku();
+    }
+
     public boolean tarkistaRivi() {
         return false;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         sykli++;
@@ -51,9 +69,10 @@ public class Peli extends Timer implements ActionListener {
             return;
         }
         
-        System.out.println("Peli käy! (sykli #"+sykli+", kesto "+nopeus+" ms)");
-        
-        
+        liikutaAktiivista();
+
+        System.out.println("Peli käy! (sykli #" + sykli + ", kesto " + nopeus + " ms)");
+
+
     }
-    
 }

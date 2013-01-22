@@ -16,6 +16,7 @@ public class Main {
         
         uusiTetris.start();
         
+        System.out.println(uusiTetris.getAktiivinenMuoto());
         
         
     }
