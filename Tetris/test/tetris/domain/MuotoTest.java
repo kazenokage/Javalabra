@@ -34,13 +34,4 @@ public class MuotoTest {
         assertEquals(testiMuoto.getKoko(), 4);
     }
     
-    @Test
-    public void testLiiku() {
-        // testataan liikkuuko oikein
-    }
-
-    @Test
-    public void testOsuu() {
-        // testataan osumiset
-    }
 }
