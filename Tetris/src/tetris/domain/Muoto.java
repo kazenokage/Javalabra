@@ -13,9 +13,9 @@ public class Muoto {
     public Muoto(int alkuX, int alkuY, Suunta alkusuunta) {
         this.palat = new ArrayList<>();
         this.palat.add(new Pala(alkuX, alkuY));
-        this.palat.add(new Pala(alkuX, alkuY + 10));
-        this.palat.add(new Pala(alkuX, alkuY + 20));
-        this.palat.add(new Pala(alkuX, alkuY + 20));
+        this.palat.add(new Pala(alkuX, alkuY + 30));
+        this.palat.add(new Pala(alkuX, alkuY + 60));
+        this.palat.add(new Pala(alkuX, alkuY + 90));
         this.suunta = alkusuunta;
         this.pituus = 3;
     }
@@ -44,13 +44,13 @@ public class Muoto {
     
     public void liiku() {
         if (this.suunta == Suunta.ALAS) {
-            liikutaPaloja(0,10);
+            liikutaPaloja(0,30);
         }
         if (this.suunta == Suunta.VASEN) {
-            liikutaPaloja(-10,0);
+            liikutaPaloja(-30,0);
         }
         if (this.suunta == Suunta.OIKEA) {
-            liikutaPaloja(10,0);
+            liikutaPaloja(30,0);
         }
 
     }

@@ -12,16 +12,21 @@ public class Kayttoliittyma implements Runnable {
     private Piirtoalusta alusta;
     private Peli tetrisPeli;
 
-    public Kayttoliittyma() {
-        // tehdään joo.
+    public Kayttoliittyma(Peli peli) {
+        this.tetrisPeli = peli;
     }
 
     public void luoKomponentit(Container container) {
         Piirtoalusta uusiAlusta = new Piirtoalusta(this.tetrisPeli);
         this.alusta = uusiAlusta;
         container.add(uusiAlusta);
+        frame.addKeyListener(new Nappaimistonkuuntelija(tetrisPeli, alusta));
     }
 
+    public Paivitettava getPaivitettava() {
+        return alusta;
+    }
+    
     @Override
     public void run() {
         frame = new JFrame("Tetris");

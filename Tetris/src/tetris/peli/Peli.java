@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.Timer;
 import tetris.Suunta;
 import tetris.domain.Muoto;
+import tetris.gui.Paivitettava;
 
 public class Peli extends Timer implements ActionListener {
 
@@ -15,14 +16,17 @@ public class Peli extends Timer implements ActionListener {
     private int korkeus;
     private boolean jatkuu;
     private int nopeus;
+    private Pistelaskuri laskuri;
     private Muoto aktiivinenMuoto;
     private int sykli = 0;
+    private Paivitettava paivitettava;
 
     public Peli() {
         super(1000, null);
         this.muodot = new ArrayList<Muoto>();
         this.jatkuu = true;
         this.nopeus = 1000;
+        this.laskuri = new Pistelaskuri();
 
         lisaaMuoto();
 
@@ -51,6 +55,10 @@ public class Peli extends Timer implements ActionListener {
     public List<Muoto> getKaikkiMuodot() {
         return muodot;
     }
+    
+    public Pistelaskuri getPistelaskuri() {
+        return laskuri;
+    }
 
     public void liikutaAktiivista() {
         aktiivinenMuoto.liiku();
@@ -58,6 +66,10 @@ public class Peli extends Timer implements ActionListener {
 
     public boolean tarkistaRivi() {
         return false;
+    }
+
+    public void setPaivitettava(Paivitettava paivitettava) {
+        this.paivitettava = paivitettava;
     }
 
     @Override
@@ -70,6 +82,7 @@ public class Peli extends Timer implements ActionListener {
         }
 
         liikutaAktiivista();
+        paivitettava.paivita();
 
         System.out.println("Peli käy! (sykli #" + sykli + ", kesto(nopeus) " + nopeus + " ms)");
 
