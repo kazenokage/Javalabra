@@ -7,3 +7,4 @@ Päivä	    Aika (h)	    Mitä?
 20.1.2013   1               Pelin rakenteen ideointia, luokkakaavio
 22.1.2013   4               Pelin rungon koodausta, luokkien luomista jne.
 22.1.2013   4		    Perustestikäyttöliittymä, testejä	
+24.1.2013   3.5             Palojen liikuttelu, pistelaskuri, käyttöliittymää
