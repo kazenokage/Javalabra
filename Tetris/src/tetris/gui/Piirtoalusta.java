@@ -10,18 +10,19 @@ import tetris.peli.Peli;
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Peli tetrisPeli;
-    
+
     public Piirtoalusta(Peli tetrisPeli) {
         this.tetrisPeli = tetrisPeli;
     }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
+
         g.setColor(Color.BLACK);
         // testipala
         g.fill3DRect(10 * 10, 10 * 10, 20, 20, true);
-        
+
 //        for (Muoto muoto : this.tetrisPeli.getKaikkiMuodot()) {
 //            for (Pala pala : muoto.getPalat()) {
 //                g.fill3DRect(pala.getX() * 10, pala.getY() * 10, 10, 10, true);

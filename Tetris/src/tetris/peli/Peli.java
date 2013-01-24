@@ -23,9 +23,9 @@ public class Peli extends Timer implements ActionListener {
         this.muodot = new ArrayList<Muoto>();
         this.jatkuu = true;
         this.nopeus = 1000;
-        
+
         lisaaMuoto();
-        
+
         addActionListener(this);
         setInitialDelay(1000);
     }
@@ -40,18 +40,18 @@ public class Peli extends Timer implements ActionListener {
         aktiivinenMuoto = uusiMuoto;
 
     }
-    
+
     public Muoto getAktiivinenMuoto() {
         if (aktiivinenMuoto != null) {
             return aktiivinenMuoto;
-        } 
+        }
         return null;
     }
-    
+
     public List<Muoto> getKaikkiMuodot() {
         return muodot;
     }
-    
+
     public void liikutaAktiivista() {
         aktiivinenMuoto.liiku();
     }
@@ -63,15 +63,15 @@ public class Peli extends Timer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         sykli++;
-        
+
         if (!jatkuu) {
             System.out.println("Game over!");
             return;
         }
-        
+
         liikutaAktiivista();
 
-        System.out.println("Peli käy! (sykli #" + sykli + ", kesto " + nopeus + " ms)");
+        System.out.println("Peli käy! (sykli #" + sykli + ", kesto(nopeus) " + nopeus + " ms)");
 
 
     }

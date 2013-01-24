@@ -5,19 +5,18 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import tetris.Suunta;
 
-
 public class MuotoTest {
-    
+
     Muoto testiMuoto;
-    
+
     public MuotoTest() {
     }
-    
+
     @Before
     public void setUp() {
-        testiMuoto = new Muoto(0,0,Suunta.ALAS);
+        testiMuoto = new Muoto(0, 0, Suunta.ALAS);
     }
-    
+
     @Test
     public void alkuSuuntaOikein() {
         assertEquals(testiMuoto.getSuunta(), Suunta.ALAS);
@@ -33,5 +32,4 @@ public class MuotoTest {
     public void onkoKokoOikea() {
         assertEquals(testiMuoto.getKoko(), 4);
     }
-    
 }

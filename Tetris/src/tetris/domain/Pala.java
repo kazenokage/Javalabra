@@ -20,6 +20,11 @@ public class Pala {
     public int getY() {
         return this.y;
     }
+    
+    public void liiku(int xmuutos, int ymuutos) {
+        this.x += xmuutos;
+        this.y += ymuutos;
+    }
 
     public boolean osuu(Pala pala) {
         if (this.x == pala.getX() && this.y == pala.getY()) {

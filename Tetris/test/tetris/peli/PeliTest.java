@@ -9,12 +9,12 @@ import tetris.Suunta;
 import tetris.domain.Muoto;
 
 public class PeliTest {
-    
+
     Peli testiPeli;
-    
+
     public PeliTest() {
     }
-    
+
     @Before
     public void setUp() {
         testiPeli = new Peli();
@@ -23,20 +23,19 @@ public class PeliTest {
     @Test
     public void kaynnistyykoPeli() {
         testiPeli.start();
-        assertEquals(testiPeli.jatkuu(),true);
-        assertEquals(testiPeli.isRunning(),true);
+        assertEquals(testiPeli.jatkuu(), true);
+        assertEquals(testiPeli.isRunning(), true);
     }
 
     @Test
     public void onkoAktiivinenMuoto() {
-        assertNotNull(testiPeli.getAktiivinenMuoto());        
+        assertNotNull(testiPeli.getAktiivinenMuoto());
     }
 
     @Test
     public void tallentuukoMuodotOikein() {
         testiPeli.lisaaMuoto();
         testiPeli.lisaaMuoto();
-        assertEquals(testiPeli.getKaikkiMuodot().size(),3);
+        assertEquals(testiPeli.getKaikkiMuodot().size(), 3);
     }
-    
 }
