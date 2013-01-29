@@ -53,9 +53,21 @@ public class Muoto {
 
     }
 
+    public Muoto kopioiMuoto(Muoto kopioitava) {
+        Muoto kopioitu = new Muoto(0,0,Suunta.ALAS);
+        kopioitu.palat.clear();
+        for (Pala pala : this.palat) {
+            kopioitu.palat.add(pala);
+        }
+        return kopioitu;
+    }
+    
     public boolean osuuMuotoihin(List<Muoto> muodot) {
         for (Muoto tarkistettava : muodot) {
-            for (Pala tarkistettavaPala : tarkistettava.getPalat()) {
+            Muoto kopio = kopioiMuoto(tarkistettava);
+            kopio.setSuunta(suunta);
+            kopio.liiku();
+            for (Pala tarkistettavaPala : kopio.getPalat()) {
                 if (this.osuu(tarkistettavaPala)) {
                     return true;
                 }
@@ -75,9 +87,16 @@ public class Muoto {
 
     public boolean osuuReunaan() {
         for (Pala tarkistettava : palat) {
-            if ((tarkistettava.getX()) <= 0
-                    || (tarkistettava.getX() + 60) >= 300
-                    || (tarkistettava.getY() + 60) >= 600) {
+            if ((tarkistettava.getX()) <= 0 || (tarkistettava.getX() + 31) >= 300) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean osuuAlareunaan() {
+        for (Pala tarkistettava : palat) {
+            if ((tarkistettava.getY()+31) >= 600) {
                 return true;
             }
         }

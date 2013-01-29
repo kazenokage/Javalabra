@@ -23,11 +23,15 @@ public class Nappaimistonkuuntelija implements KeyListener {
     @Override
     public void keyPressed(KeyEvent ke) {
         if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
-            peli.getAktiivinenMuoto().liikutaPaloja(-30, 0);
+            peli.getAktiivinenMuoto().setSuunta(Suunta.VASEN);
+            peli.getAktiivinenMuoto().liiku();
+            peli.getAktiivinenMuoto().setSuunta(Suunta.ALAS);
         } else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-            peli.getAktiivinenMuoto().liikutaPaloja(30,0);
+            peli.getAktiivinenMuoto().setSuunta(Suunta.OIKEA);
+            peli.getAktiivinenMuoto().liiku();
+            peli.getAktiivinenMuoto().setSuunta(Suunta.ALAS);
         } else if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-            peli.getAktiivinenMuoto().liikutaPaloja(0,30);
+            peli.getAktiivinenMuoto().liiku();
         } else if (ke.getKeyCode() == KeyEvent.VK_Z) {
             // kierra myötäpäivään
         } else if (ke.getKeyCode() == KeyEvent.VK_X) {

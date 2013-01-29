@@ -64,10 +64,11 @@ public class Peli extends Timer implements ActionListener {
     public void liikutaAktiivista() {
         List<Muoto> staattiset = new ArrayList<>(muodot);
         staattiset.remove(this.aktiivinenMuoto);
-        if (!aktiivinenMuoto.osuuMuotoihin(staattiset) && !aktiivinenMuoto.osuuReunaan()) {
-            aktiivinenMuoto.liiku();
-        } else {
+        if (aktiivinenMuoto.osuuAlareunaan()) {
+            laskuri.lisaaPisteita(100);
             lisaaMuoto();
+        } else {
+            aktiivinenMuoto.liiku();
         }
     }
 
@@ -92,9 +93,9 @@ public class Peli extends Timer implements ActionListener {
         paivitettava.paivita();
 
         System.out.println("Peli käy! (sykli #" + sykli + ", kesto(nopeus) " + nopeus + " ms)");
-//        for (Pala tulostettava : this.aktiivinenMuoto.getPalat()) {
-//            System.out.println(tulostettava);
-//        }
+        for (Pala tulostettava : this.aktiivinenMuoto.getPalat()) {
+            System.out.println(tulostettava);
+        }
 
 
     }

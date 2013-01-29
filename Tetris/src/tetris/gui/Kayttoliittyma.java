@@ -36,11 +36,13 @@ public class Kayttoliittyma implements Runnable {
         frame.setPreferredSize(new Dimension(leveys, korkeus));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setUndecorated(true);
 
         luoKomponentit(frame.getContentPane());
 
-        frame.pack();
         frame.setVisible(true);
+        frame.pack();
+        
     }
 
     public JFrame getFrame() {
