@@ -8,3 +8,5 @@ Päivä	    Aika (h)	    Mitä?
 22.1.2013   4               Pelin rungon koodausta, luokkien luomista jne.
 22.1.2013   4		    Perustestikäyttöliittymä, testejä	
 24.1.2013   3.5             Palojen liikuttelu, pistelaskuri, käyttöliittymää
+28.1.2013   2               Liikkumisen tuunausta
+29.1.2013   4               Törmäystestausta, käyttöliittymäpäivityksiä
