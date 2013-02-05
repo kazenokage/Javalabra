@@ -5,7 +5,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import tetris.Suunta;
 import tetris.peli.Peli;
-
+/**
+ * Tetriksen näppäimistönkuuntelija
+ * 
+ * @author tomminikkanen
+ */
 public class Nappaimistonkuuntelija implements KeyListener {
     
     private Peli peli;
@@ -16,6 +20,9 @@ public class Nappaimistonkuuntelija implements KeyListener {
         this.paivitettava = paivitettava;
     }
     
+    /**
+     * Liikuttaa aktiivista palasta jos mahdollista
+     */
     public void liikuJossEiOsu() {
         if (!peli.getAktiivinenMuoto().osuuMuotoihin(peli.getStaattiset()) && !peli.getAktiivinenMuoto().osuuAlareunaan()) {
            peli.getAktiivinenMuoto().liiku(); 
@@ -25,7 +32,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
     @Override
     public void keyTyped(KeyEvent ke) {
     }
-
+    
     @Override
     public void keyPressed(KeyEvent ke) {
         if (ke.getKeyCode() == KeyEvent.VK_LEFT) {

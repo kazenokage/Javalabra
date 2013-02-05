@@ -1,6 +1,12 @@
 
 package tetris.peli;
 
+/**
+ * Pelin pisteidenlaskuun tarkoitettu luokka. 
+ * 
+ * @author tomminikkanen
+ */
+
 public class Pistelaskuri {
     private int pisteet;
     

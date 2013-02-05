@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tetris.Suunta;
 
+/**
+ * Tetriksessä käytettävä muoto, koostuu Paloista.
+ * @author tomminikkanen
+ */
+
 public class Muoto {
 
     private List<Pala> palat;
@@ -33,13 +38,20 @@ public class Muoto {
     public List<Pala> getPalat() {
         return this.palat;
     }
-
+    /**
+     * Liikuttaa kaikkia muodon paloja haluttuun suuntaan.
+     * @param xmuutos haluttu x-koordinaatin muutos
+     * @param ymuutos haluttu y-koordinaatin muutos
+     */
     public void liikutaPaloja(int xmuutos, int ymuutos) {
         for (Pala liikutettava : this.getPalat()) {
             liikutettava.liiku(xmuutos, ymuutos);
         }
     }
-
+    
+    /**
+     * Kutsuu liikutaPaloja-metodia oikeilla parametreilla, suunnasta riippuen.
+     */
     public void liiku() {
         if (this.suunta == Suunta.ALAS) {
             liikutaPaloja(0, 30);
@@ -52,7 +64,10 @@ public class Muoto {
         }
 
     }
-
+    /**
+     * Tekee muodosta haamukopion jota voidaan käyttää törmäystesteissä.
+     * @return 
+     */
     public Muoto kopioiMuoto() {
         Muoto kopioitu = new Muoto(Suunta.ALAS);
         kopioitu.palat.clear();
@@ -61,7 +76,11 @@ public class Muoto {
         }
         return kopioitu;
     }
-    
+    /**
+     * Tarkistaa osuuko muoto parametrina annetun listan muotoihin.
+     * @param muodot
+     * @return 
+     */
     public boolean osuuMuotoihin(List<Muoto> muodot) {
         Muoto kopio = kopioiMuoto();
         kopio.setSuunta(this.suunta);
@@ -75,7 +94,11 @@ public class Muoto {
         }
         return false;
     }
-
+    /** 
+     * Tarkistaa osuuko annettu Pala olion omiin paloihin.
+     * @param pala
+     * @return 
+     */
     public boolean osuu(Pala pala) {
         for (Pala muotoPala : this.palat) {
             if (muotoPala.osuu(pala)) {
@@ -84,7 +107,10 @@ public class Muoto {
         }
         return false;
     }
-
+    /** 
+     * Tarkistaa osuuko yksikään muodon paloista reunaan.
+     * @return 
+     */
     public boolean osuuReunaan() {
         for (Pala tarkistettava : palat) {
             if ((tarkistettava.getX()) <= 0 || (tarkistettava.getX() + 31) >= 300) {
@@ -94,6 +120,10 @@ public class Muoto {
         return false;
     }
     
+    /**
+     * Tarkistaa osuuko yksikään muodon paloista alareunaan.
+     * @return 
+     */
     public boolean osuuAlareunaan() {
         for (Pala tarkistettava : palat) {
             if ((tarkistettava.getY()+31) >= 600) {
@@ -103,6 +133,10 @@ public class Muoto {
         return false;
     }
     
+    /**
+     * Tarkistaa jääkö joku muodon osista ylärajan yläpuolelle
+     * @return 
+     */
     public boolean meneeYlarajanYli() {
         for (Pala tarkistettava : palat) {
             if ((tarkistettava.getY()<0)) {

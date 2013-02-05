@@ -1,5 +1,12 @@
 package tetris;
-
+/**
+ * 
+ * @author tomminikkanen
+ * @deprecated ei käytössä tällä hetkellä
+ * 
+ * Määrittelee saatavilla olevat värit
+ * 
+ */
 public enum Vari {
 
     MUSTA(0, 0, 0),

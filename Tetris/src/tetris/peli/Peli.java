@@ -10,7 +10,12 @@ import tetris.domain.Muoto;
 import tetris.domain.MuotoGeneraattori;
 import tetris.domain.Pala;
 import tetris.gui.Paivitettava;
-
+/**
+ * 
+ * Tetriksen pääluokka, pyörittää peliä
+ * 
+ * @author tomminikkanen
+ */
 public class Peli extends Timer implements ActionListener {
 
     private List<Muoto> muodot;
@@ -39,11 +44,22 @@ public class Peli extends Timer implements ActionListener {
         addActionListener(this);
         setInitialDelay(1000);
     }
-
+    
+    /**
+     * 
+     * Kertoo jatkuuko peli
+     * 
+     * @return 
+     */
+    
     public boolean jatkuu() {
         return jatkuu;
     }
 
+    /**
+     * Luo uuden muodon, lisää sen muotoihin ja tekee siitä aktiivisen
+     */
+    
     public void lisaaMuoto() {
         Muoto uusiMuoto = generaattori.luoUusi(120, 0);
         muodot.add(uusiMuoto);
@@ -76,6 +92,10 @@ public class Peli extends Timer implements ActionListener {
         return laskuri;
     }
 
+    /**
+     * Liikuttaa aktiivista muotoa, jos mahdollista
+     */
+    
     public void liikutaAktiivista() {
         if (aktiivinenMuoto.osuuAlareunaan() || aktiivinenMuoto.osuuMuotoihin(staattiset)) {
             laskuri.lisaaPisteita(100);
@@ -84,7 +104,13 @@ public class Peli extends Timer implements ActionListener {
             aktiivinenMuoto.liiku();
         }
     }
-
+    
+    /**
+     * Tarkistaa onko rivi täynnä
+     * 
+     * @return 
+     */
+    
     public boolean tarkistaRivi() {
         return false;
     }

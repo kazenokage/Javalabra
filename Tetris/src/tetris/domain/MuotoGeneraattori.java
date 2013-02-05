@@ -4,6 +4,12 @@ import java.awt.Color;
 import java.util.Random;
 import tetris.Suunta;
 
+/**
+ * Tetriksessä käytettyjen muotojen luontiin tarkoitettu luokka.
+ * 
+ * @author tomminikkanen
+ */
+
 public class MuotoGeneraattori {
     
     private int[][] muodot;
@@ -23,7 +29,12 @@ public class MuotoGeneraattori {
         };
         varit = new Color[]{Color.CYAN,Color.ORANGE,Color.BLUE,Color.GREEN,Color.RED,Color.MAGENTA,Color.YELLOW};
     }
-    
+    /**
+     * Luo uuden satunnaisen muodon käyttämällä luokassa määriteltyjä vaihtoehtoja
+     * @param alkux muodon alku x-koordinaatti
+     * @param alkuy muodon alku y-koordinaatti
+     * @return 
+     */
     public Muoto luoUusi(int alkux, int alkuy) {
         int muoto = random.nextInt(muodot.length);
         Muoto luotava = new Muoto(Suunta.ALAS);

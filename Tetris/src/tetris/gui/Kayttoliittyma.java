@@ -5,7 +5,11 @@ import javax.swing.WindowConstants;
 import java.awt.Container;
 import java.awt.Dimension;
 import tetris.peli.Peli;
-
+/**
+ * Tetriksen käyttöliittymä
+ * 
+ * @author tomminikkanen
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;

@@ -7,7 +7,10 @@ import javax.swing.JPanel;
 import tetris.domain.Muoto;
 import tetris.domain.Pala;
 import tetris.peli.Peli;
-
+/**
+ * Piirtoalusta tetrikselle
+ * @author tomminikkanen
+ */
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Peli tetrisPeli;
