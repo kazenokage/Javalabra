@@ -7,12 +7,14 @@ import java.util.List;
 import javax.swing.Timer;
 import tetris.Suunta;
 import tetris.domain.Muoto;
+import tetris.domain.MuotoGeneraattori;
 import tetris.domain.Pala;
 import tetris.gui.Paivitettava;
 
 public class Peli extends Timer implements ActionListener {
 
     private List<Muoto> muodot;
+    private List<Muoto> staattiset;
     private int leveys;
     private int korkeus;
     private boolean jatkuu;
@@ -21,13 +23,16 @@ public class Peli extends Timer implements ActionListener {
     private Muoto aktiivinenMuoto;
     private int sykli = 0;
     private Paivitettava paivitettava;
+    private MuotoGeneraattori generaattori;
 
     public Peli() {
         super(1000, null);
         this.muodot = new ArrayList<Muoto>();
+        this.staattiset = new ArrayList<Muoto>();
         this.jatkuu = true;
         this.nopeus = 1000;
         this.laskuri = new Pistelaskuri();
+        this.generaattori = new MuotoGeneraattori();
 
         lisaaMuoto();
 
@@ -40,8 +45,14 @@ public class Peli extends Timer implements ActionListener {
     }
 
     public void lisaaMuoto() {
-        Muoto uusiMuoto = new Muoto(120, 0, Suunta.ALAS);
+        Muoto uusiMuoto = generaattori.luoUusi(120, 0);
         muodot.add(uusiMuoto);
+        if (aktiivinenMuoto != null) {
+            staattiset.add(aktiivinenMuoto);
+            if (aktiivinenMuoto.meneeYlarajanYli()) {
+                jatkuu = false;
+            }
+        }
         aktiivinenMuoto = uusiMuoto;
 
     }
@@ -56,15 +67,17 @@ public class Peli extends Timer implements ActionListener {
     public List<Muoto> getKaikkiMuodot() {
         return muodot;
     }
+    
+    public List<Muoto> getStaattiset() {
+        return staattiset;
+    }
 
     public Pistelaskuri getPistelaskuri() {
         return laskuri;
     }
 
     public void liikutaAktiivista() {
-        List<Muoto> staattiset = new ArrayList<>(muodot);
-        staattiset.remove(this.aktiivinenMuoto);
-        if (aktiivinenMuoto.osuuAlareunaan()) {
+        if (aktiivinenMuoto.osuuAlareunaan() || aktiivinenMuoto.osuuMuotoihin(staattiset)) {
             laskuri.lisaaPisteita(100);
             lisaaMuoto();
         } else {
@@ -88,15 +101,11 @@ public class Peli extends Timer implements ActionListener {
             System.out.println("Game over!");
             return;
         }
-
+        
         liikutaAktiivista();
         paivitettava.paivita();
 
         System.out.println("Peli käy! (sykli #" + sykli + ", kesto(nopeus) " + nopeus + " ms)");
-        for (Pala tulostettava : this.aktiivinenMuoto.getPalat()) {
-            System.out.println(tulostettava);
-        }
-
 
     }
 }

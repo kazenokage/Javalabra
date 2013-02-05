@@ -16,6 +16,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
         this.paivitettava = paivitettava;
     }
     
+    public void liikuJossEiOsu() {
+        if (!peli.getAktiivinenMuoto().osuuMuotoihin(peli.getStaattiset()) && !peli.getAktiivinenMuoto().osuuAlareunaan()) {
+           peli.getAktiivinenMuoto().liiku(); 
+        }
+    }
+    
     @Override
     public void keyTyped(KeyEvent ke) {
     }
@@ -24,14 +30,14 @@ public class Nappaimistonkuuntelija implements KeyListener {
     public void keyPressed(KeyEvent ke) {
         if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
             peli.getAktiivinenMuoto().setSuunta(Suunta.VASEN);
-            peli.getAktiivinenMuoto().liiku();
+            liikuJossEiOsu();
             peli.getAktiivinenMuoto().setSuunta(Suunta.ALAS);
         } else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
             peli.getAktiivinenMuoto().setSuunta(Suunta.OIKEA);
-            peli.getAktiivinenMuoto().liiku();
+            liikuJossEiOsu();
             peli.getAktiivinenMuoto().setSuunta(Suunta.ALAS);
         } else if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-            peli.getAktiivinenMuoto().liiku();
+            liikuJossEiOsu();
         } else if (ke.getKeyCode() == KeyEvent.VK_Z) {
             // kierra myötäpäivään
         } else if (ke.getKeyCode() == KeyEvent.VK_X) {

@@ -9,15 +9,15 @@ public class Muoto {
     private List<Pala> palat;
     private Suunta suunta;
 
-    public Muoto(int alkuX, int alkuY, Suunta alkusuunta) {
+    public Muoto(Suunta alkusuunta) {
         this.palat = new ArrayList<>();
-        this.palat.add(new Pala(alkuX, alkuY));
-        this.palat.add(new Pala(alkuX, alkuY + 30));
-        this.palat.add(new Pala(alkuX, alkuY + 60));
-        this.palat.add(new Pala(alkuX, alkuY + 90));
         this.suunta = alkusuunta;
     }
-
+    
+    public void lisaaPala(Pala pala) {
+        this.palat.add(pala);
+    }
+    
     public Suunta getSuunta() {
         return this.suunta;
     }
@@ -53,25 +53,25 @@ public class Muoto {
 
     }
 
-    public Muoto kopioiMuoto(Muoto kopioitava) {
-        Muoto kopioitu = new Muoto(0,0,Suunta.ALAS);
+    public Muoto kopioiMuoto() {
+        Muoto kopioitu = new Muoto(Suunta.ALAS);
         kopioitu.palat.clear();
         for (Pala pala : this.palat) {
-            kopioitu.palat.add(pala);
+            kopioitu.palat.add(new Pala(pala.getX(),pala.getY(),pala.getVari()));
         }
         return kopioitu;
     }
     
     public boolean osuuMuotoihin(List<Muoto> muodot) {
+        Muoto kopio = kopioiMuoto();
+        kopio.setSuunta(this.suunta);
+        kopio.liiku();
         for (Muoto tarkistettava : muodot) {
-            Muoto kopio = kopioiMuoto(tarkistettava);
-            kopio.setSuunta(suunta);
-            kopio.liiku();
-            for (Pala tarkistettavaPala : kopio.getPalat()) {
-                if (this.osuu(tarkistettavaPala)) {
+            for (Pala tarkistettavaPala : tarkistettava.getPalat()) {
+                if (kopio.osuu(tarkistettavaPala)) {
                     return true;
                 }
-            }
+            } 
         }
         return false;
     }
@@ -97,6 +97,15 @@ public class Muoto {
     public boolean osuuAlareunaan() {
         for (Pala tarkistettava : palat) {
             if ((tarkistettava.getY()+31) >= 600) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean meneeYlarajanYli() {
+        for (Pala tarkistettava : palat) {
+            if ((tarkistettava.getY()<0)) {
                 return true;
             }
         }

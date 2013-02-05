@@ -1,16 +1,18 @@
 package tetris.domain;
 
 import tetris.Vari;
+import java.awt.Color;
 
 public class Pala {
 
     private int x;
     private int y;
-    private Vari vari;
+    private Color vari;
 
-    public Pala(int x, int y) {
+    public Pala(int x, int y, Color vari) {
         this.x = x;
         this.y = y;
+        this.vari = vari;
     }
 
     public int getX() {
@@ -19,6 +21,10 @@ public class Pala {
 
     public int getY() {
         return this.y;
+    }
+    
+    public Color getVari() {
+        return this.vari;
     }
     
     public void liiku(int xmuutos, int ymuutos) {
