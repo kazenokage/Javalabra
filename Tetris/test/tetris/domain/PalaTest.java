@@ -1,5 +1,6 @@
 package tetris.domain;
 
+import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,7 +15,7 @@ public class PalaTest {
 
     @Before
     public void setUp() {
-        testiPala = new Pala(10, 10);
+        testiPala = new Pala(10, 10, Color.BLACK);
     }
 
     @Test
@@ -29,10 +30,10 @@ public class PalaTest {
 
     @Test
     public void testataanOsuuko() {
-        toinenPala = new Pala(10, 10);
+        toinenPala = new Pala(10, 10, Color.BLACK);
         assertEquals(testiPala.osuu(toinenPala), true);
 
-        toinenPala = new Pala(20, 20);
+        toinenPala = new Pala(20, 20, Color.BLACK);
         assertEquals(testiPala.osuu(toinenPala), false);
     }
 

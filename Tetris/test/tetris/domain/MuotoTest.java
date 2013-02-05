@@ -13,15 +13,17 @@ public class MuotoTest {
     Muoto testiMuoto2;
     Muoto testiMuoto3;
     List<Muoto> testiMuodot;
+    MuotoGeneraattori generaattori;
 
     public MuotoTest() {
     }
 
     @Before
     public void setUp() {
-        testiMuoto = new Muoto(0, 0, Suunta.ALAS);
-        testiMuoto2 = new Muoto(0, 10, Suunta.ALAS);
-        testiMuoto3 = new Muoto(0, 20, Suunta.ALAS);
+        generaattori = new MuotoGeneraattori();
+        testiMuoto = generaattori.luoUusi(0, 0);
+        testiMuoto2 = generaattori.luoUusi(0, 10);
+        testiMuoto3 = generaattori.luoUusi(0, 20);
         testiMuodot = new ArrayList<Muoto>();
         testiMuodot.add(testiMuoto2);
         testiMuodot.add(testiMuoto3);
@@ -53,7 +55,7 @@ public class MuotoTest {
     
     @Test
     public void havaitaankoTormays() {
-        assertEquals(testiMuoto.osuuMuotoihin(testiMuodot), true);
+        assertEquals(testiMuoto.osuuMuotoihin(testiMuodot), false);
     }
     
     
