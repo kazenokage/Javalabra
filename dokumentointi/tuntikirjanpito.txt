@@ -11,3 +11,4 @@ Päivä	    Aika (h)	    Mitä?
 28.1.2013   2               Liikkumisen tuunausta
 29.1.2013   4               Törmäystestausta, käyttöliittymäpäivityksiä
 4.2.2013    2               Törmäystestausta lisää
+5.2.2013    6               Törmäystestaus kuntoon, palojen luonti, dokumentointia
