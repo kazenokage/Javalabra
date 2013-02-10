@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import java.awt.Container;
 import java.awt.Dimension;
+import tetris.domain.MuotoKaantaja;
 import tetris.peli.Peli;
 /**
  * Tetriksen käyttöliittymä

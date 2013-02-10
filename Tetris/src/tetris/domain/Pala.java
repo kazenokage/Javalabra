@@ -1,25 +1,27 @@
 package tetris.domain;
 
 import java.awt.Color;
+
 /**
- * 
+ *
  * Kuvaa yksittäistä palaa, joista muodostetaan muotoja.
- * 
+ *
  * @author tomminikkanen
- * 
+ *
  */
 public class Pala {
 
     private int x;
     private int y;
     private Color vari;
+
     /**
-     * 
+     *
      * @param x palan x-koordinaatti
      * @param y palan y-koordinaatti
      * @param vari palan Color-tyyppinen värimäärittely
-     * 
-     * 
+     *
+     *
      */
     public Pala(int x, int y, Color vari) {
         this.x = x;
@@ -34,15 +36,15 @@ public class Pala {
     public int getY() {
         return this.y;
     }
-    
+
     public Color getVari() {
         return this.vari;
     }
-    
+
     /**
-     * 
+     *
      * Liikutetaan palasta haluuttuihin koordinaatteihin
-     * 
+     *
      * @param xmuutos haluttu muutos palan x-koordinaattiin
      * @param ymuutos haluttu muutos palan y-koordinaattiin
      */
@@ -51,12 +53,23 @@ public class Pala {
         this.y += ymuutos;
     }
 
-    
     /**
-     * 
-     * Tarkistetaan osuuko olion määrittelemä pala parametrina annettavaan palaan
-     * 
-     * @param pala
+     * Muutetaan palasen koordinaatit halutuiksi
+     *
+     * @param x haluttu uusi x-koordinaatti
+     * @param y haluttu uusi y-koordinaatti
+     */
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     *
+     * Tarkistetaan osuuko olion määrittelemä pala parametrina annettavaan
+     * palaan
+     *
+     * @param pala Pala, jota vasten olion palaa testataan.
      * @return true, jos osuu, false jos ei osu
      */
     public boolean osuu(Pala pala) {

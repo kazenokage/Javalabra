@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.Timer;
 import tetris.domain.Muoto;
 import tetris.domain.MuotoGeneraattori;
+import tetris.domain.MuotoKaantaja;
 import tetris.gui.Paivitettava;
 
 /**

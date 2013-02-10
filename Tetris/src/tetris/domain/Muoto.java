@@ -13,10 +13,14 @@ public class Muoto {
 
     private List<Pala> palat;
     private Suunta suunta;
+    private int muotoTyyppi;
+    private int asento;
 
-    public Muoto(Suunta alkusuunta) {
+    public Muoto(Suunta alkusuunta, int tyyppi, int asento) {
         this.palat = new ArrayList<>();
         this.suunta = alkusuunta;
+        this.muotoTyyppi = tyyppi;
+        this.asento = asento;
     }
     
     public void lisaaPala(Pala pala) {
@@ -33,6 +37,18 @@ public class Muoto {
 
     public int getKoko() {
         return this.palat.size();
+    }
+    
+    public int getTyyppi() {
+        return this.muotoTyyppi;
+    }
+    
+    public int getAsento() {
+        return this.asento;
+    }
+    
+    public void setAsento(int asento) {
+        this.asento = asento;
     }
 
     public List<Pala> getPalat() {
@@ -69,7 +85,7 @@ public class Muoto {
      * @return 
      */
     public Muoto kopioiMuoto() {
-        Muoto kopioitu = new Muoto(Suunta.ALAS);
+        Muoto kopioitu = new Muoto(Suunta.ALAS, this.muotoTyyppi, this.asento);
         kopioitu.palat.clear();
         for (Pala pala : this.palat) {
             kopioitu.palat.add(new Pala(pala.getX(),pala.getY(),pala.getVari()));

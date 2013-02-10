@@ -6,6 +6,7 @@ import tetris.Suunta;
 
 /**
  * Tetriksessä käytettyjen muotojen luontiin tarkoitettu luokka.
+ * Pitää sisällään tiedon mahdollisista muodoista, niiden palojen sijainnista sekä väristä.
  * 
  * @author tomminikkanen
  */
@@ -19,13 +20,13 @@ public class MuotoGeneraattori {
     public MuotoGeneraattori() {
         random = new Random();
         muodot = new int[][]{
-            {0,0,0,30,0,60,0,90},
-            {-30,0,0,0,0,30,0,60},
-            {0,0,30,0,0,30,0,60},
-            {-30,-30,-30,0,0,0,0,30},
-            {30,-30,0,0,30,0,0,30},
-            {0,-30,-30,0,0,0,30,0},
-            {0,-30,30,-30,0,0,30,0}
+            {0,-30,0,0,0,30,0,60}, // I
+            {-30,-30,0,-30,0,0,0,30}, // L 
+            {0,0,30,0,0,30,0,60}, // J
+            {-30,-30,-30,0,0,0,0,30}, // S
+            {30,-30,0,0,30,0,0,30}, // Z 
+            {0,-30,-30,0,0,0,30,0}, // T
+            {0,-30,30,-30,0,0,30,0} // O
         };
         varit = new Color[]{Color.CYAN,Color.ORANGE,Color.BLUE,Color.GREEN,Color.RED,Color.MAGENTA,Color.YELLOW};
     }
@@ -37,9 +38,9 @@ public class MuotoGeneraattori {
      */
     public Muoto luoUusi(int alkux, int alkuy) {
         int muoto = random.nextInt(muodot.length);
-        Muoto luotava = new Muoto(Suunta.ALAS);
+        Muoto luotava = new Muoto(Suunta.ALAS,muoto,0);
         int j = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < muodot[muoto].length/2; i++) {
             Pala pala = new Pala(alkux+muodot[muoto][j],alkuy+muodot[muoto][j+1], varit[muoto]);
             luotava.lisaaPala(pala);
             j+=2;
