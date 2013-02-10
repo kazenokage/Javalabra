@@ -28,7 +28,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
      * Liikuttaa aktiivista palasta jos mahdollista
      */
     public void liikuJosEiOsu() {
-        if (!peli.getAktiivinenMuoto().osuuMuotoihin(peli.getStaattiset()) && !peli.getAktiivinenMuoto().osuuAlareunaan()) {
+        if (!peli.getAktiivinenMuoto().osuuMuotoihin(peli.getStaattiset()) && !peli.getAktiivinenMuoto().osuuAlareunaan() && !peli.onkoTauko()) {
             peli.getAktiivinenMuoto().liiku();
         }
     }
@@ -55,6 +55,8 @@ public class Nappaimistonkuuntelija implements KeyListener {
             kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), false);
         } else if (ke.getKeyCode() == KeyEvent.VK_X) {
             kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), true);
+        } else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+            peli.tauko();
         }
         paivitettava.paivita();
     }

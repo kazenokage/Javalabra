@@ -21,6 +21,7 @@ public class Peli extends Timer implements ActionListener {
     private List<Muoto> muodot;
     private List<Muoto> staattiset;
     private boolean jatkuu;
+    private boolean tauko;
     private int nopeus;
     private Pistelaskuri laskuri;
     private Muoto aktiivinenMuoto;
@@ -51,6 +52,20 @@ public class Peli extends Timer implements ActionListener {
      */
     public boolean jatkuu() {
         return jatkuu;
+    }
+    
+    public void tauko() {
+        if (tauko) {
+            tauko = false;
+            start();
+        } else {
+            tauko = true;
+            stop();
+        }
+    }
+    
+    public boolean onkoTauko() {
+        return tauko;
     }
 
     /**

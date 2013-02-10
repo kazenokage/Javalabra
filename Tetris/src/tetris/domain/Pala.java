@@ -1,6 +1,7 @@
 package tetris.domain;
 
 import java.awt.Color;
+import java.awt.Image;
 
 /**
  *
@@ -14,6 +15,7 @@ public class Pala {
     private int x;
     private int y;
     private Color vari;
+    private Image palaKuva;
 
     /**
      *
@@ -23,10 +25,11 @@ public class Pala {
      *
      *
      */
-    public Pala(int x, int y, Color vari) {
+    public Pala(int x, int y, Color vari, Image kuva) {
         this.x = x;
         this.y = y;
         this.vari = vari;
+        this.palaKuva = kuva;
     }
 
     public int getX() {
@@ -39,6 +42,10 @@ public class Pala {
 
     public Color getVari() {
         return this.vari;
+    }
+
+    public Image getKuva() {
+        return this.palaKuva;
     }
 
     /**

@@ -88,7 +88,7 @@ public class Muoto {
         Muoto kopioitu = new Muoto(Suunta.ALAS, this.muotoTyyppi, this.asento);
         kopioitu.palat.clear();
         for (Pala pala : this.palat) {
-            kopioitu.palat.add(new Pala(pala.getX(),pala.getY(),pala.getVari()));
+            kopioitu.palat.add(new Pala(pala.getX(),pala.getY(),pala.getVari(),pala.getKuva()));
         }
         return kopioitu;
     }

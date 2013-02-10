@@ -6,9 +6,10 @@ import java.awt.Container;
 import java.awt.Dimension;
 import tetris.domain.MuotoKaantaja;
 import tetris.peli.Peli;
+
 /**
  * Tetriksen käyttöliittymä
- * 
+ *
  * @author tomminikkanen
  */
 public class Kayttoliittyma implements Runnable {
@@ -31,7 +32,7 @@ public class Kayttoliittyma implements Runnable {
     public Paivitettava getPaivitettava() {
         return alusta;
     }
-    
+
     @Override
     public void run() {
         frame = new JFrame("Tetris");
@@ -47,7 +48,7 @@ public class Kayttoliittyma implements Runnable {
 
         frame.setVisible(true);
         frame.pack();
-        
+
     }
 
     public JFrame getFrame() {
