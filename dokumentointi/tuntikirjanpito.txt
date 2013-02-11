@@ -14,3 +14,4 @@ Päivä	    Aika (h)	    Mitä?
 5.2.2013    6               Törmäystestaus kuntoon, palojen luonti, dokumentointia
 10.2.2013   5               Palojen kääntely lisätty, UI-tuunausta, siivoilua
 11.2.2013   2               Kääntämisen törmäystestaus
+12.2.2013   1               Päivitetty kaavioita
