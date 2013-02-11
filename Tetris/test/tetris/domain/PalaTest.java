@@ -15,7 +15,7 @@ public class PalaTest {
 
     @Before
     public void setUp() {
-        testiPala = new Pala(10, 10, Color.BLACK);
+        testiPala = new Pala(10, 10, Color.BLACK, null);
     }
 
     @Test
@@ -30,10 +30,10 @@ public class PalaTest {
 
     @Test
     public void testataanOsuuko() {
-        toinenPala = new Pala(10, 10, Color.BLACK);
+        toinenPala = new Pala(10, 10, Color.BLACK, null);
         assertEquals(testiPala.osuu(toinenPala), true);
 
-        toinenPala = new Pala(20, 20, Color.BLACK);
+        toinenPala = new Pala(20, 20, Color.BLACK, null);
         assertEquals(testiPala.osuu(toinenPala), false);
     }
 

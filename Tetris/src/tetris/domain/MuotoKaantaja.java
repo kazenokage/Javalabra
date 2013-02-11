@@ -1,7 +1,5 @@
 package tetris.domain;
 
-import java.util.Arrays;
-
 /**
  * Muotojen kääntämiseen tarkoitettu luokka. Pitää sisällään tiedon muotojen eri
  * asennoista.
@@ -66,7 +64,7 @@ public class MuotoKaantaja {
      * @param myotaPaivaan Käännetäänkö myötäpäivään (true) vai vastapäivään
      * (false).
      */
-    public void muutaAsento(Muoto kaannettava, boolean myotaPaivaan) {
+    private void muutaAsento(Muoto kaannettava, boolean myotaPaivaan) {
         if (myotaPaivaan) {
             if (kaannettava.getAsento() == 3) {
                 kaannettava.setAsento(0);

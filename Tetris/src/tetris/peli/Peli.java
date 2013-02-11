@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.Timer;
 import tetris.domain.Muoto;
 import tetris.domain.MuotoGeneraattori;
-import tetris.domain.MuotoKaantaja;
+import tetris.domain.Pala;
 import tetris.gui.Paivitettava;
 
 /**
@@ -110,6 +110,7 @@ public class Peli extends Timer implements ActionListener {
         if (aktiivinenMuoto.osuuAlareunaan() || aktiivinenMuoto.osuuMuotoihin(staattiset)) {
             laskuri.lisaaPisteita(100);
             lisaaMuoto();
+            tarkistaRivit();
         } else {
             aktiivinenMuoto.liiku();
         }
@@ -120,8 +121,40 @@ public class Peli extends Timer implements ActionListener {
      *
      * @return
      */
-    public boolean tarkistaRivi() {
-        return false;
+    public void tarkistaRivit() {
+        System.out.println("Kutsuttiin tarkistusta!");
+        int lahtoY = 0;
+        ArrayList<Integer> taydetRivit = new ArrayList<>();
+        for (int rivi = 19; rivi >= 0; rivi--) {
+            int palaLaskuri = 0;
+            for (Muoto muoto : staattiset) {
+                for (Pala pala : muoto.getPalat()) {
+                    if (pala.getY() == rivi*30) {
+                        palaLaskuri++;
+                    }
+                }
+            }
+            if (palaLaskuri == 10) {
+                taydetRivit.add(rivi);
+            }
+        }
+        if (!taydetRivit.isEmpty()) {
+            for (Integer tyhjennettava : taydetRivit) {
+                laskuri.lisaaPisteita(1000);
+                tiputaRiveja((tyhjennettava*30)+60);
+            }
+        }
+    }
+    
+    public void tiputaRiveja(int mistaYlospain) {
+        System.out.println("Kutsuttiin rivien tipauttamista riviltä "+mistaYlospain+" lähtien!");
+        for (Muoto muoto : staattiset) {
+            for (Pala pala : muoto.getPalat()) {
+                if (pala.getY()<mistaYlospain) {
+                    pala.liiku(0, 30);
+                }
+            }
+        }
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {
