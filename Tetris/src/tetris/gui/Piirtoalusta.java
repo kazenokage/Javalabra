@@ -48,6 +48,8 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g2d.setFont(pisteFontti);
         g2d.setColor(Color.GRAY);
         g2d.drawString(tetrisPeli.getPistelaskuri().toString(), 10, 30);
+        g2d.setColor(Color.DARK_GRAY);
+        g2d.drawString(tetrisPeli.getPistelaskuri().getRivitMerkkijono(), 10, 50);
 
     }
 

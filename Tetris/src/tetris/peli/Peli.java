@@ -122,7 +122,6 @@ public class Peli extends Timer implements ActionListener {
      * @return
      */
     public void tarkistaRivit() {
-        System.out.println("Kutsuttiin tarkistusta!");
         int lahtoY = 0;
         ArrayList<Integer> taydetRivit = new ArrayList<>();
         for (int rivi = 19; rivi >= 0; rivi--) {
@@ -141,6 +140,11 @@ public class Peli extends Timer implements ActionListener {
         if (!taydetRivit.isEmpty()) {
             for (Integer tyhjennettava : taydetRivit) {
                 laskuri.lisaaPisteita(1000);
+                laskuri.lisaaRivi();
+                if(laskuri.getRivit()%10 == 0) {
+                    nopeus -= 50;
+                    this.setDelay(nopeus);
+                }
                 tiputaRiveja((tyhjennettava*30)+60);
             }
         }

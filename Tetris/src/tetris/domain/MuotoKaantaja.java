@@ -2,7 +2,7 @@ package tetris.domain;
 
 /**
  * Muotojen kääntämiseen tarkoitettu luokka. Pitää sisällään tiedon muotojen eri
- * asennoista.
+ * asennoista, ja kääntää haluttua muotoa matriisin mukaisesti.
  *
  * @author tomminikkanen
  */
