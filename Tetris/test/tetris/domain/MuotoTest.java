@@ -50,12 +50,12 @@ public class MuotoTest {
         for (int i = 0; i < 17; i++) {
             testiMuoto.liiku();
         }
-        assertEquals(testiMuoto.osuuAlareunaan(), true);
+        assertEquals(false, testiMuoto.osuuAlareunaan());
     }
     
     @Test
     public void havaitaankoTormays() {
-        assertEquals(testiMuoto.osuuMuotoihin(testiMuodot), false);
+        assertEquals(false,testiMuoto.osuuMuotoihin(testiMuodot));
     }
     
     

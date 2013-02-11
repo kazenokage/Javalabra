@@ -3,6 +3,7 @@ package tetris.gui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import tetris.Suunta;
+import tetris.domain.Muoto;
 import tetris.domain.MuotoKaantaja;
 import tetris.peli.Peli;
 
@@ -32,6 +33,14 @@ public class Nappaimistonkuuntelija implements KeyListener {
             peli.getAktiivinenMuoto().liiku();
         }
     }
+    
+    public void kaannaJosEiOsu(boolean myotapaivaan) {
+        Muoto kopio = peli.getAktiivinenMuoto().kopioiMuoto();
+        kaantaja.kaannaMuoto(kopio, myotapaivaan);
+        if (!kopio.osuuMuotoihin(peli.getStaattiset())) {
+            kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), myotapaivaan);
+        }
+    }
 
     @Override
     public void keyTyped(KeyEvent ke) {
@@ -50,11 +59,11 @@ public class Nappaimistonkuuntelija implements KeyListener {
         } else if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
             liikuJosEiOsu();
         } else if (ke.getKeyCode() == KeyEvent.VK_UP) {
-            kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), true);
+            kaannaJosEiOsu(true);
         } else if (ke.getKeyCode() == KeyEvent.VK_Z) {
-            kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), false);
+            kaannaJosEiOsu(false);
         } else if (ke.getKeyCode() == KeyEvent.VK_X) {
-            kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), true);
+            kaannaJosEiOsu(true);
         } else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
             peli.tauko();
         }

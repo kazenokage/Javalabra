@@ -36,13 +36,13 @@ public class MuotoGeneraattori {
         };
         varit = new Color[]{Color.CYAN, Color.ORANGE, Color.BLUE, Color.GREEN, Color.RED, Color.MAGENTA, Color.YELLOW};
 
-        Image syaani = new ImageIcon(this.getClass().getResource("../pala_syaani.png")).getImage();
-        Image oranssi = new ImageIcon(this.getClass().getResource("../pala_oranssi.png")).getImage();
-        Image sininen = new ImageIcon(this.getClass().getResource("../pala_sininen.png")).getImage();
-        Image vihrea = new ImageIcon(this.getClass().getResource("../pala_vihrea.png")).getImage();
-        Image punainen = new ImageIcon(this.getClass().getResource("../pala_punainen.png")).getImage();
-        Image purppura = new ImageIcon(this.getClass().getResource("../pala_purppura.png")).getImage();
-        Image keltainen = new ImageIcon(this.getClass().getResource("../pala_keltainen.png")).getImage();
+        Image syaani = new ImageIcon(getClass().getResource("../pala_syaani.png")).getImage();
+        Image oranssi = new ImageIcon(getClass().getResource("../pala_oranssi.png")).getImage();
+        Image sininen = new ImageIcon(getClass().getResource("../pala_sininen.png")).getImage();
+        Image vihrea = new ImageIcon(getClass().getResource("../pala_vihrea.png")).getImage();
+        Image punainen = new ImageIcon(getClass().getResource("../pala_punainen.png")).getImage();
+        Image purppura = new ImageIcon(getClass().getResource("../pala_purppura.png")).getImage();
+        Image keltainen = new ImageIcon(getClass().getResource("../pala_keltainen.png")).getImage();
         palaKuvat = new Image[]{syaani, oranssi, sininen, vihrea, punainen, purppura, keltainen};
     }
 

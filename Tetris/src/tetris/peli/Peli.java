@@ -122,9 +122,8 @@ public class Peli extends Timer implements ActionListener {
      * @return
      */
     public void tarkistaRivit() {
-        int lahtoY = 0;
         ArrayList<Integer> taydetRivit = new ArrayList<>();
-        for (int rivi = 19; rivi >= 0; rivi--) {
+        for (int rivi = 0; rivi < 20; rivi++) {
             int palaLaskuri = 0;
             for (Muoto muoto : staattiset) {
                 for (Pala pala : muoto.getPalat()) {
@@ -142,16 +141,28 @@ public class Peli extends Timer implements ActionListener {
                 laskuri.lisaaPisteita(1000);
                 laskuri.lisaaRivi();
                 if(laskuri.getRivit()%10 == 0) {
-                    nopeus -= 50;
-                    this.setDelay(nopeus);
+                    kasvataNopeutta();
                 }
                 tiputaRiveja((tyhjennettava*30)+60);
             }
         }
     }
     
+    /** 
+     * Kasvattaa pelin nopeutta yhden askeleen verran
+     */
+    public void kasvataNopeutta() {
+        if (this.nopeus >= 100) {
+            this.nopeus -= 100;
+        }
+    }
+    /**
+     * 
+     * Käytetään kaikkien tietyn linjan yläpuolella olevien palojen tiputtamiseen alaspäin.
+     * 
+     * @param mistaYlospain Mistä y-koordinaatista ylöspäin olevat palat tiputetaan alaspäin.
+     */
     public void tiputaRiveja(int mistaYlospain) {
-        System.out.println("Kutsuttiin rivien tipauttamista riviltä "+mistaYlospain+" lähtien!");
         for (Muoto muoto : staattiset) {
             for (Pala pala : muoto.getPalat()) {
                 if (pala.getY()<mistaYlospain) {
