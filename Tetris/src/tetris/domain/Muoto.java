@@ -127,11 +127,23 @@ public class Muoto {
      * Tarkistaa osuuko yksikään muodon paloista reunaan.
      * @return 
      */
-    public boolean osuuReunaan() {
-        for (Pala tarkistettava : palat) {
-            if ((tarkistettava.getX()) <= 0 || (tarkistettava.getX() + 31) >= 300) {
+    
+    public boolean meneeReunanYli(Muoto muoto) {
+        for (Pala tarkistettava : muoto.getPalat()) {
+            if ((tarkistettava.getX()) < 0 || (tarkistettava.getX()) >= 300) {
                 return true;
             }
+        }
+        return false;
+    }
+    
+    public boolean osuuReunaan() {
+        Muoto kopio = kopioiMuoto();
+        kopio.setSuunta(this.suunta);
+        kopio.liiku();
+        
+        if (meneeReunanYli(kopio)) {
+            return true; 
         }
         return false;
     }
