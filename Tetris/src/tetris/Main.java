@@ -1,13 +1,12 @@
 package tetris;
 
 import javax.swing.SwingUtilities;
-import tetris.domain.*;
 import tetris.peli.Peli;
 import tetris.gui.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         System.out.println("Käynnistetään Tetris...");
         Peli uusiTetris = new Peli();
 

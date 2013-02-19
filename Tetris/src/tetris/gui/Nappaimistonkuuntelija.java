@@ -33,7 +33,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
             peli.getAktiivinenMuoto().liiku();
         }
     }
-    
+
     public void kaannaJosEiOsu(boolean myotapaivaan) {
         Muoto kopio = peli.getAktiivinenMuoto().kopioiMuoto();
         kaantaja.kaannaMuoto(kopio, myotapaivaan);
@@ -65,13 +65,19 @@ public class Nappaimistonkuuntelija implements KeyListener {
         } else if (ke.getKeyCode() == KeyEvent.VK_X) {
             kaannaJosEiOsu(true);
         } else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-            peli.tauko();
+            if (peli.gameOver()) {
+                peli.aloitaAlusta();
+            } else {
+                peli.tauko();
+            }
         }
         paivitettava.paivita();
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
-        peli.getAktiivinenMuoto().setSuunta(Suunta.ALAS);
+        if (peli.getAktiivinenMuoto() != null) {
+            peli.getAktiivinenMuoto().setSuunta(Suunta.ALAS);
+        }
     }
 }
