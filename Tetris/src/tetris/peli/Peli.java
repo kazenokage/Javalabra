@@ -108,7 +108,7 @@ public class Peli extends Timer implements ActionListener {
      */
     public void liikutaAktiivista() {
         if (aktiivinenMuoto.osuuAlareunaan() || aktiivinenMuoto.osuuMuotoihin(staattiset)) {
-            laskuri.lisaaPisteita(100);
+            laskuri.lisaaPisteita(aktiivinenMuoto.getPalat().size());
             lisaaMuoto();
             tarkistaRivit();
         } else {
@@ -178,6 +178,8 @@ public class Peli extends Timer implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        
         sykli++;
 
         if (!jatkuu) {

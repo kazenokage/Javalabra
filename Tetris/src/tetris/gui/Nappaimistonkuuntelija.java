@@ -37,7 +37,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
     public void kaannaJosEiOsu(boolean myotapaivaan) {
         Muoto kopio = peli.getAktiivinenMuoto().kopioiMuoto();
         kaantaja.kaannaMuoto(kopio, myotapaivaan);
-        if (!kopio.osuuMuotoihin(peli.getStaattiset())) {
+        if (!kopio.osuuMuotoihin(peli.getStaattiset()) && !peli.getAktiivinenMuoto().meneeReunanYli(kopio)) {
             kaantaja.kaannaMuoto(peli.getAktiivinenMuoto(), myotapaivaan);
         }
     }

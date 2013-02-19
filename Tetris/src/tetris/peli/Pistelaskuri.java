@@ -24,8 +24,16 @@ public class Pistelaskuri {
         return riveja;
     }
     
+    public int getTaso() {
+        return (int)Math.floor(riveja/10.0)+1;
+    }
+    
     public String getRivitMerkkijono() {
         return ""+riveja;
+    }
+    
+    public String getTasoMerkkijono() {
+        return ""+getTaso();
     }
     
     public void lisaaPisteita(int lisays) {

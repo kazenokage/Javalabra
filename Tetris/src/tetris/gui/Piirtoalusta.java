@@ -27,7 +27,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     public Piirtoalusta(Peli tetrisPeli) {
         this.tetrisPeli = tetrisPeli;
         taustakuva = new ImageIcon(this.getClass().getResource("../bg.jpg")).getImage();
-        pisteFontti = new Font("Helvetica", Font.PLAIN, 17);
+        pisteFontti = new Font("Helvetica", Font.PLAIN, 18);
     }
 
     @Override
@@ -47,9 +47,9 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2d.setFont(pisteFontti);
         g2d.setColor(Color.GRAY);
-        g2d.drawString(tetrisPeli.getPistelaskuri().toString(), 10, 30);
-        g2d.setColor(Color.DARK_GRAY);
-        g2d.drawString(tetrisPeli.getPistelaskuri().getRivitMerkkijono(), 10, 50);
+        g2d.drawString(tetrisPeli.getPistelaskuri().toString(), 318, 85);
+        g2d.drawString(tetrisPeli.getPistelaskuri().getRivitMerkkijono(), 318, 157);
+        g2d.drawString(tetrisPeli.getPistelaskuri().getTasoMerkkijono(), 318, 229);
 
     }
 
