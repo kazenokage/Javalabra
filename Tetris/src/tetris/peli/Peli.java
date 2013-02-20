@@ -21,7 +21,7 @@ import tetris.io.TiedostoKasittelija;
 public class Peli extends Timer implements ActionListener {
 
     private List<Muoto> muodot;
-    private List<Muoto> staattiset;
+    private List<Pala> staattiset;
     private boolean jatkuu;
     private boolean tauko;
     private boolean gameOver;
@@ -33,7 +33,7 @@ public class Peli extends Timer implements ActionListener {
     private TiedostoKasittelija tiedostoKasittelija;
     private ArrayList<Integer> highScoret;
 
-    public Peli() throws Exception {
+    public Peli() {
         super(1000, null);
         this.muodot = new ArrayList<>();
         this.staattiset = new ArrayList<>();
@@ -42,7 +42,11 @@ public class Peli extends Timer implements ActionListener {
         this.laskuri = new Pistelaskuri();
         this.generaattori = new MuotoGeneraattori();
         this.tiedostoKasittelija = new TiedostoKasittelija();
-        this.highScoret = tiedostoKasittelija.lueHighscore();
+        try {
+            this.highScoret = tiedostoKasittelija.lueHighscore();
+        } catch (Exception ex) {
+            System.out.println("Highscorelistaa ei saatu avattua /:");
+        }
 
         lisaaMuoto();
 
@@ -102,7 +106,9 @@ public class Peli extends Timer implements ActionListener {
         Muoto uusiMuoto = generaattori.luoUusi(120, 0);
         muodot.add(uusiMuoto);
         if (aktiivinenMuoto != null) {
-            staattiset.add(aktiivinenMuoto);
+            for (Pala pala : aktiivinenMuoto.getPalat()) {
+                staattiset.add(pala);
+            }
             if (aktiivinenMuoto.meneeYlarajanYli()) {
                 jatkuu = false;
                 gameOver = true;
@@ -131,7 +137,7 @@ public class Peli extends Timer implements ActionListener {
         return muodot;
     }
 
-    public List<Muoto> getStaattiset() {
+    public List<Pala> getStaattiset() {
         return staattiset;
     }
 
@@ -159,15 +165,13 @@ public class Peli extends Timer implements ActionListener {
      */
     public void tarkistaRivit() {
         ArrayList<Integer> taydetRivit = new ArrayList<>();
-        for (int rivi = 0; rivi < 20; rivi++) {
+        for (int rivi = 19; rivi >= 0; rivi--) {
             int palaLaskuri = 0;
-            for (Muoto muoto : staattiset) {
-                for (Pala pala : muoto.getPalat()) {
+                for (Pala pala : staattiset) {
                     if (pala.getY() == rivi * 30) {
                         palaLaskuri++;
                     }
                 }
-            }
             if (palaLaskuri == 10) {
                 taydetRivit.add(rivi);
             }
@@ -179,8 +183,14 @@ public class Peli extends Timer implements ActionListener {
                 if (laskuri.getRivit() % 10 == 0) {
                     kasvataNopeutta();
                 }
-                tiputaRiveja((tyhjennettava * 30) + 60);
+                poistaRivi(tyhjennettava * 30);
+                 
             }
+            Collections.reverse(taydetRivit);
+            for (Integer tiputettava : taydetRivit) {
+                tiputaRiveja((tiputettava * 30));
+            }
+            paivitettava.paivita();
         }
     }
 
@@ -190,6 +200,7 @@ public class Peli extends Timer implements ActionListener {
     public void kasvataNopeutta() {
         if (this.nopeus >= 100) {
             this.nopeus -= 100;
+            setDelay(this.nopeus);
         }
     }
 
@@ -202,13 +213,27 @@ public class Peli extends Timer implements ActionListener {
      * tiputetaan alaspäin.
      */
     public void tiputaRiveja(int mistaYlospain) {
-        for (Muoto muoto : staattiset) {
-            for (Pala pala : muoto.getPalat()) {
+            for (Pala pala : staattiset) {
                 if (pala.getY() < mistaYlospain) {
                     pala.liiku(0, 30);
                 }
             }
+    }
+    
+    public void poistaRivi(int mikaY) {
+        for (Pala pala : etsiPoistettavatPalat(mikaY)) {
+            staattiset.remove(pala);
         }
+    }
+    
+    public List<Pala> etsiPoistettavatPalat(int mikaY) {
+        List<Pala> palautettava = new ArrayList<>();
+            for (Pala pala : staattiset) {
+                if (pala.getY() == mikaY) {
+                    palautettava.add(pala);
+                }
+            }
+        return palautettava;
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {

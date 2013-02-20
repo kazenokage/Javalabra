@@ -97,17 +97,15 @@ public class Muoto {
      * @param muodot
      * @return 
      */
-    public boolean osuuMuotoihin(List<Muoto> muodot) {
+    public boolean osuuMuotoihin(List<Pala> palat) {
         Muoto kopio = kopioiMuoto();
         kopio.setSuunta(this.suunta);
         kopio.liiku();
-        for (Muoto tarkistettava : muodot) {
-            for (Pala tarkistettavaPala : tarkistettava.getPalat()) {
-                if (kopio.osuu(tarkistettavaPala)) {
-                    return true;
-                }
-            } 
-        }
+        for (Pala tarkistettavaPala : palat) {
+            if (kopio.osuu(tarkistettavaPala)) {
+                return true;
+            }
+        } 
         return false;
     }
     /** 

@@ -1,12 +1,8 @@
 package tetris.peli;
 
-import java.awt.event.ActionEvent;
-import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tetris.Suunta;
-import tetris.domain.Muoto;
 
 public class PeliTest {
 
