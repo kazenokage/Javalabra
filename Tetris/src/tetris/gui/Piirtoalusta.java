@@ -8,7 +8,6 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import tetris.domain.Muoto;
 import tetris.domain.Pala;
 import tetris.peli.Peli;
 

@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.Timer;
-import tetris.domain.Muoto;
-import tetris.domain.MuotoGeneraattori;
-import tetris.domain.Pala;
+import tetris.domain.*;
 import tetris.gui.Paivitettava;
 import tetris.io.TiedostoKasittelija;
 

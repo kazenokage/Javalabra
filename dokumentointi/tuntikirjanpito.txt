@@ -15,3 +15,5 @@ Päivä	    Aika (h)	    Mitä?
 10.2.2013   5               Palojen kääntely lisätty, UI-tuunausta, siivoilua
 11.2.2013   2               Kääntämisen törmäystestaus
 12.2.2013   1               Päivitetty kaavioita
+18.2.2013   2               UI-twiikkausta
+19.2.2013   4               UI-päivityksiä, rivintunnistus kuntoon
