@@ -8,7 +8,7 @@ import tetris.domain.MuotoKaantaja;
 import tetris.peli.Peli;
 
 /**
- * Tetriksen näppäimistönkuuntelija
+ * Tetriksen näppäimistönkuuntelija. Odottaa painallusta käyttäjältä, ja toimii painetun napin mukaisesti.
  *
  * @author tomminikkanen
  */
@@ -33,7 +33,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
             peli.getAktiivinenMuoto().liiku();
         }
     }
-
+    
+    /**
+     * Kääntää aktiivista muotoa, jos se ei osu käännettäessä muihin muotoihin tai reunoihin
+     * 
+     * @param myotapaivaan käännetäänkö palaa myötäpäivään
+     */
     public void kaannaJosEiOsu(boolean myotapaivaan) {
         Muoto kopio = peli.getAktiivinenMuoto().kopioiMuoto();
         kaantaja.kaannaMuoto(kopio, myotapaivaan);

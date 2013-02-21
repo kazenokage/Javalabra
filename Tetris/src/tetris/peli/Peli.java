@@ -118,6 +118,11 @@ public class Peli extends Timer implements ActionListener {
 
     }
 
+    /**
+     * palauttaa aktiivisen muodon
+     *
+     * @return aktiivinen Muoto
+     */
     public Muoto getAktiivinenMuoto() {
         if (aktiivinenMuoto != null) {
             return aktiivinenMuoto;
@@ -125,6 +130,11 @@ public class Peli extends Timer implements ActionListener {
         return null;
     }
 
+    /**
+     * Hakee highscore-listan parhaat pisteet.
+     *
+     * @return Parhaat pisteet
+     */
     public int getParhaatPisteet() {
         Collections.sort(this.highScoret);
         Collections.reverse(this.highScoret);
@@ -165,11 +175,11 @@ public class Peli extends Timer implements ActionListener {
         ArrayList<Integer> taydetRivit = new ArrayList<>();
         for (int rivi = 19; rivi >= 0; rivi--) {
             int palaLaskuri = 0;
-                for (Pala pala : staattiset) {
-                    if (pala.getY() == rivi * 30) {
-                        palaLaskuri++;
-                    }
+            for (Pala pala : staattiset) {
+                if (pala.getY() == rivi * 30) {
+                    palaLaskuri++;
                 }
+            }
             if (palaLaskuri == 10) {
                 taydetRivit.add(rivi);
             }
@@ -182,7 +192,7 @@ public class Peli extends Timer implements ActionListener {
                     kasvataNopeutta();
                 }
                 poistaRivi(tyhjennettava * 30);
-                 
+
             }
             Collections.reverse(taydetRivit);
             for (Integer tiputettava : taydetRivit) {
@@ -211,26 +221,38 @@ public class Peli extends Timer implements ActionListener {
      * tiputetaan alaspäin.
      */
     public void tiputaRiveja(int mistaYlospain) {
-            for (Pala pala : staattiset) {
-                if (pala.getY() < mistaYlospain) {
-                    pala.liiku(0, 30);
-                }
+        for (Pala pala : staattiset) {
+            if (pala.getY() < mistaYlospain) {
+                pala.liiku(0, 30);
             }
+        }
     }
-    
+
+    /**
+     * Poistaa kaikki palat joiden y-koordinaatti vastaa parametrina annettua
+     * y-koordinaattia.
+     *
+     * @param mikaY missä y-koordinaatissa poistettavat palat sijaitsevat
+     */
     public void poistaRivi(int mikaY) {
         for (Pala pala : etsiPoistettavatPalat(mikaY)) {
             staattiset.remove(pala);
         }
     }
-    
+
+    /**
+     * Etsii kaikki palat, jotka sijaitsevat annetussa y-koordinaatissa.
+     *
+     * @param mikaY Haluttu y-koordinaatti
+     * @return lista paloista
+     */
     public List<Pala> etsiPoistettavatPalat(int mikaY) {
         List<Pala> palautettava = new ArrayList<>();
-            for (Pala pala : staattiset) {
-                if (pala.getY() == mikaY) {
-                    palautettava.add(pala);
-                }
+        for (Pala pala : staattiset) {
+            if (pala.getY() == mikaY) {
+                palautettava.add(pala);
             }
+        }
         return palautettava;
     }
 

@@ -122,7 +122,7 @@ public class Muoto {
         return false;
     }
     /** 
-     * Tarkistaa osuuko yksikään muodon paloista reunaan.
+     * Tarkistaa meneekö yksikään annetun muodon paloista sivureunojen yli.
      * @return 
      */
     
@@ -135,6 +135,11 @@ public class Muoto {
         return false;
     }
     
+    
+    /**
+     * Tekee oliosta kopion, ja tarkistaa osuuko kopio reunoihin.
+     * @return 
+     */
     public boolean osuuReunaan() {
         Muoto kopio = kopioiMuoto();
         kopio.setSuunta(this.suunta);
