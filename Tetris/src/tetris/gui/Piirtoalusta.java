@@ -58,8 +58,8 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         if (tetrisPeli.gameOver()) {
             g.drawImage(verho, 0, 0, this);
             g2d.setColor(Color.LIGHT_GRAY);
-            g2d.drawString("Your points: " + tetrisPeli.getPistelaskuri().getPisteet(), 90, 260);
-            g2d.drawString("Current highscore: " + tetrisPeli.getParhaatPisteet(), 65, 290);
+            g2d.drawString("Your points: " + tetrisPeli.getPistelaskuri().getPisteet(), 80, 260);
+            g2d.drawString("Current highscore: " + tetrisPeli.getParhaatPisteet(), 55, 290);
         }
 
     }
