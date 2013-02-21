@@ -1,0 +1,12 @@
+Ohjelma on jaettavissa peliin ja sen logiikkaan sekä käyttöliittymään. 
+Peli -luokka toimii kaiken keskipisteessä, ja pyörittää itse pelilogiikkaa.
+"Pelinappuloina" toimivat tetriksessä Palat, ja niistä koostuvat Muodot.
+Muotojen generointiin on oma luokkansa. Myös Muotojen kääntämiseen on oma luokkansa,
+joka pitää sisällään tiedon kaikkien mahdollisten Muotojen kaikista mahdollisista
+asennoista. Peli pitää myös kirjaa pisteistä käyttäen Pistelaskuri-luokkaa.
+
+Pelin ohjaamista varten käytössä on Näppäimistönkuuntelija, joka odottaa käyttäjältä
+napinpainalluksia, ja välittää ne itse pelille. Käyttöliittymä koostuu 
+Käyttöliittymästä sekä siihen kytketystä Piirtoalustasta. Piirtoalusta luo jokaisella
+päivityssyklillä tarvittavat elementit, jotka piirretään näytölle päivityksen 
+yhteydessä.
