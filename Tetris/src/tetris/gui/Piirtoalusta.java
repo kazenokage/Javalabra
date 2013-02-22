@@ -25,8 +25,8 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
     public Piirtoalusta(Peli tetrisPeli) {
         this.tetrisPeli = tetrisPeli;
-        taustakuva = new ImageIcon(this.getClass().getResource("../bg.jpg")).getImage();
-        verho = new ImageIcon(this.getClass().getResource("../bg_curtain.png")).getImage();
+        taustakuva = new ImageIcon(this.getClass().getResource("/tetris/resurssit/bg.jpg")).getImage();
+        verho = new ImageIcon(this.getClass().getResource("/tetris/resurssit/bg_curtain.png")).getImage();
         pisteFontti = new Font("Helvetica", Font.PLAIN, 18);
     }
 
