@@ -32,11 +32,11 @@ public class Peli extends Timer implements ActionListener {
     private ArrayList<Integer> highScoret;
 
     public Peli() {
-        super(100, null);
+        super(1000, null);
         this.muodot = new ArrayList<>();
         this.staattiset = new ArrayList<>();
         this.jatkuu = true;
-        this.nopeus = 100;
+        this.nopeus = 1000;
         this.laskuri = new Pistelaskuri();
         this.generaattori = new MuotoGeneraattori();
         this.tiedostoKasittelija = new TiedostoKasittelija();
@@ -49,7 +49,7 @@ public class Peli extends Timer implements ActionListener {
         lisaaMuoto();
 
         addActionListener(this);
-        setInitialDelay(100);
+        setInitialDelay(1000);
     }
 
     /**
