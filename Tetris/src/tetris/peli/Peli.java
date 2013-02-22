@@ -186,7 +186,7 @@ public class Peli extends Timer implements ActionListener {
         }
         if (!taydetRivit.isEmpty()) {
             for (Integer tyhjennettava : taydetRivit) {
-                laskuri.lisaaPisteita(1000);
+                laskuri.lisaaPisteitaRivista(taydetRivit.size());
                 laskuri.lisaaRivi();
                 if (laskuri.getRivit() % 10 == 0) {
                     kasvataNopeutta();
