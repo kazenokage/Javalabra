@@ -1,0 +1,35 @@
+-------
+Yleistä
+-------
+
+Koska graafisen käyttöliittymän testaaminen automaattisilla testeillä olisi ollut
+hankalaa, Tetristä on testattu lähestulkoon alusta asti manuaalisesti, pelaamalla.
+Näin testattuna pelistä tuli nopeasti kokeiltua mahdollisimman monta permutaatiota, ja 
+virheiden korjaus tehtiin näiden testien perusteella. Esimerkiksi muotojen kääntämisen
+kehitys toteutui juuri näin;
+
+  1) Tutkittiin paperilla kaikki mahdolliset asennot
+  2) Koodattiin asennot kääntömatriisiin
+  3) Ajettiin peli ja pyöriteltiin palaa käyttöliittymässä
+  4) Jos kääntämisessä meni joku "oudosti", korjattiin matriisi
+
+Samaa metodiikkaa käytin myös muotojen generoimisen testaamiseen. Myös pelin sääntöjen
+testaaminen oli helpointa peliä pelaamalla. Koska olen "oikeaa" Tetristä pelannut 
+satoja, ellen tuhansia tunteja, omasta versiosta oli helppo poimia väärältä tuntuvat
+asiat. 
+
+
+--------------
+Löydetyt bugit
+--------------
+
+Tässä listassa muutamia selviä bugeja jotka löydettiin kokeilemalla
+
+Korjattu     Palat pääsevät valumaan alareunasta läpi
+Korjattu     Palat pääsevät reunojen läpi
+Korjattu     Palat jäävät roikkumaan seiniin
+Korjattu     Palat kääntyvät toistensa sisälle
+Korjattu     Linjojen tarkistuksessa palat eivät katoa, vaan siirtyvät päällekkäin
+Korjattu     Linjojen tarkistuksessa hajarivien tarkistus ei toimi oikein
+
+Ei korjattu  Palaa pitäisi pystyä liikuttamaan vielä pohjallakin kunnes jämähtää
