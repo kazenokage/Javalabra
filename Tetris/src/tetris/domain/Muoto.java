@@ -108,7 +108,7 @@ public class Muoto {
     /**
      * Tarkistaa osuuko muoto parametrina annetun listan muotoihin.
      *
-     * @param muodot Palat joihin olion muotoa verrataan.
+     * @param palat Palat joihin olion muotoa verrataan.
      * @return True, jos osuu muotoihin, False, jos ei
      */
     public boolean osuuMuotoihin(List<Pala> palat) {
