@@ -19,3 +19,4 @@ Päivä	    Aika (h)	    Mitä?
 19.2.2013   4               UI-päivityksiä, rivintunnistus kuntoon
 21.2.2013   3               Bugikorjailua, pikaohjeen teko
 22.2.2013   3               Testien päivittämistä ja siivoilua
+22.2.2013   2               Viimeistelyä, luokkakaavion päivitys, highscore-fix

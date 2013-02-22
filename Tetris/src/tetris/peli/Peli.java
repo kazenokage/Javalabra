@@ -32,11 +32,11 @@ public class Peli extends Timer implements ActionListener {
     private ArrayList<Integer> highScoret;
 
     public Peli() {
-        super(1000, null);
+        super(100, null);
         this.muodot = new ArrayList<>();
         this.staattiset = new ArrayList<>();
         this.jatkuu = true;
-        this.nopeus = 1000;
+        this.nopeus = 100;
         this.laskuri = new Pistelaskuri();
         this.generaattori = new MuotoGeneraattori();
         this.tiedostoKasittelija = new TiedostoKasittelija();
@@ -49,7 +49,7 @@ public class Peli extends Timer implements ActionListener {
         lisaaMuoto();
 
         addActionListener(this);
-        setInitialDelay(1000);
+        setInitialDelay(100);
     }
 
     /**
@@ -98,7 +98,7 @@ public class Peli extends Timer implements ActionListener {
     }
 
     /**
-     * Luo uuden muodon, lisää sen muotoihin ja tekee siitä aktiivisen
+     * Luo uuden muodon, lisää sen muotoihin ja tekee siitä aktiivisen.
      */
     public void lisaaMuoto() {
         Muoto uusiMuoto = generaattori.luoUusi(120, 0);
@@ -108,14 +108,21 @@ public class Peli extends Timer implements ActionListener {
                 staattiset.add(pala);
             }
             if (aktiivinenMuoto.meneeYlarajanYli()) {
-                jatkuu = false;
-                gameOver = true;
-                highScoret.add(laskuri.getPisteet());
-                tiedostoKasittelija.tallennaHighscore(highScoret);
+                lopetaPeli();
             }
         }
         aktiivinenMuoto = uusiMuoto;
 
+    }
+    
+    /**
+     * Lopettaa käynnissä olevan pelin.
+     */
+    public void lopetaPeli() {
+        jatkuu = false;
+        gameOver = true;
+        highScoret.add(laskuri.getPisteet());
+        tiedostoKasittelija.tallennaHighscore(highScoret);
     }
 
     /**

@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Tiedostojen, lähinnä highscore -listan käsittelyyn tarkoitettu luokka.
@@ -12,8 +14,7 @@ import java.util.Scanner;
  * @author tomminikkanen
  */
 public class TiedostoKasittelija {
-
-    private FileWriter kirjoittaja;
+    
     private File highScoreList;
 
     public TiedostoKasittelija() {
@@ -24,11 +25,6 @@ public class TiedostoKasittelija {
             } catch (IOException ex) {
                 System.out.println("Tiedostoa ei saatu luotua!");
             }
-        }
-        try {
-            kirjoittaja = new FileWriter(highScoreList);
-        } catch (IOException ex) {
-            System.out.println("Kirjoittajan luonti ei onnistunut");
         }
     }
     
@@ -55,6 +51,15 @@ public class TiedostoKasittelija {
      * @param pisteet tallennettavat pisteet
      */
     public void tallennaHighscore(ArrayList<Integer> pisteet) {
-
+        FileWriter kirjoittaja;
+        try {
+            kirjoittaja = new FileWriter(highScoreList);
+            for (Integer piste : pisteet) {
+                kirjoittaja.write(""+piste+"\n");
+            }
+            kirjoittaja.close();
+        } catch (IOException ex) {
+            System.out.println("Kirjoittajan luominen ei onnistunut.");
+        }
     }
 }
