@@ -2,6 +2,12 @@
 Yleistä
 -------
 
+Tetriksen testaamiseen olen käyttänyt sekä automaattista, että manuaalista 
+testaamista. Automaattisilla testeillä on hoidettu testit, joiden testaaminen oli esim.
+rajatuista palautusarvoista johtuen mahdollista. Sen sijaan esimerkiksi muotojen 
+satunnaisen generoinnin takia muotogeneraattorin testaaminen ei onnistunut 
+automaattisesti. 
+
 Koska graafisen käyttöliittymän testaaminen automaattisilla testeillä olisi ollut
 hankalaa, Tetristä on testattu lähestulkoon alusta asti manuaalisesti, pelaamalla.
 Näin testattuna pelistä tuli nopeasti kokeiltua mahdollisimman monta permutaatiota, ja 
