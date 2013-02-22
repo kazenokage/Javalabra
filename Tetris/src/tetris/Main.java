@@ -4,6 +4,11 @@ import javax.swing.SwingUtilities;
 import tetris.peli.Peli;
 import tetris.gui.*;
 
+/**
+ * Tetriksen käynnistämiseen käytettävä luokka.
+ *
+ * @author tomminikkanen
+ */
 public class Main {
 
     public static void main(String[] args) throws Exception {

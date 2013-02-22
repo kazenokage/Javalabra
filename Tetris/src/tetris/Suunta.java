@@ -1,8 +1,9 @@
 package tetris;
+
 /**
- * 
+ *
  * @author tomminikkanen
- * 
+ *
  * Määrittelee suunnat
  */
 public enum Suunta {

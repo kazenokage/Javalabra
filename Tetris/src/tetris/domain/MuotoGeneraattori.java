@@ -51,7 +51,7 @@ public class MuotoGeneraattori {
      *
      * @param alkux muodon alku x-koordinaatti
      * @param alkuy muodon alku y-koordinaatti
-     * @return
+     * @return Luotu muoto.
      */
     public Muoto luoUusi(int alkux, int alkuy) {
         int muoto = random.nextInt(muodot.length);

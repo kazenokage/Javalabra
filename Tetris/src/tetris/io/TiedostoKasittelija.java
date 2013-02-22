@@ -5,8 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Tiedostojen, lähinnä highscore -listan käsittelyyn tarkoitettu luokka.
@@ -14,7 +12,7 @@ import java.util.logging.Logger;
  * @author tomminikkanen
  */
 public class TiedostoKasittelija {
-    
+
     private File highScoreList;
 
     public TiedostoKasittelija() {
@@ -27,13 +25,12 @@ public class TiedostoKasittelija {
             }
         }
     }
-    
-    
+
     /**
      * Lukee highscoret tiedostosta, ja palauttaa ne ArrayListinä.
-     * 
+     *
      * @return ArrayList<Integer> luettu highscore -lista
-     * @throws Exception 
+     * @throws Exception
      */
     public ArrayList<Integer> lueHighscore() throws Exception {
         ArrayList<Integer> pisteet = new ArrayList<>();
@@ -43,11 +40,10 @@ public class TiedostoKasittelija {
         }
         return pisteet;
     }
-    
-    
+
     /**
      * Tallentaa halutut pisteet highscore-tiedostoon.
-     * 
+     *
      * @param pisteet tallennettavat pisteet
      */
     public void tallennaHighscore(ArrayList<Integer> pisteet) {
@@ -55,7 +51,7 @@ public class TiedostoKasittelija {
         try {
             kirjoittaja = new FileWriter(highScoreList);
             for (Integer piste : pisteet) {
-                kirjoittaja.write(""+piste+"\n");
+                kirjoittaja.write("" + piste + "\n");
             }
             kirjoittaja.close();
         } catch (IOException ex) {

@@ -27,7 +27,10 @@ public class Nappaimistonkuuntelija implements KeyListener {
     }
 
     /**
-     * Liikuttaa aktiivista palasta jos mahdollista
+     * Liikuttaa aktiivista palasta jos mahdollista.
+     *
+     * Tarkistetaan osuisiko pala liikkuessaan muihin muotoihin tai reunoihin.
+     * Tarkistetaan myös onko pelissä tauko.
      */
     public void liikuJosEiOsu() {
         if (!peli.getAktiivinenMuoto().osuuMuotoihin(peli.getStaattiset()) && !peli.getAktiivinenMuoto().osuuAlareunaan() && !peli.onkoTauko() && !peli.getAktiivinenMuoto().osuuReunaan()) {

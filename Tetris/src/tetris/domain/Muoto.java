@@ -7,6 +7,9 @@ import tetris.Suunta;
 /**
  * Tetriksessä käytettävä muoto, koostuu Paloista.
  *
+ * Muotoja liikutellaan pelissä, ja niitä generoidaan
+ * MuotoGeneraattori-luokalla.
+ *
  * @author tomminikkanen
  */
 public class Muoto {
@@ -23,6 +26,11 @@ public class Muoto {
         this.asento = asento;
     }
 
+    /**
+     * Lisätään haluttu pala osaksi muotoa.
+     *
+     * @param pala lisättävä Pala.
+     */
     public void lisaaPala(Pala pala) {
         this.palat.add(pala);
     }
@@ -86,7 +94,7 @@ public class Muoto {
     /**
      * Tekee muodosta haamukopion jota voidaan käyttää törmäystesteissä.
      *
-     * @return
+     * @return Kopioitu Muoto
      */
     public Muoto kopioiMuoto() {
         Muoto kopioitu = new Muoto(Suunta.ALAS, this.muotoTyyppi, this.asento);
@@ -100,8 +108,8 @@ public class Muoto {
     /**
      * Tarkistaa osuuko muoto parametrina annetun listan muotoihin.
      *
-     * @param muodot
-     * @return
+     * @param muodot Palat joihin olion muotoa verrataan.
+     * @return True, jos osuu muotoihin, False, jos ei
      */
     public boolean osuuMuotoihin(List<Pala> palat) {
         Muoto kopio = kopioiMuoto();
@@ -119,7 +127,7 @@ public class Muoto {
      * Tarkistaa osuuko annettu Pala olion omiin paloihin.
      *
      * @param pala
-     * @return
+     * @return True, jos pala osuu omiin paloihin, False, jos ei.
      */
     public boolean osuu(Pala pala) {
         for (Pala muotoPala : this.palat) {
@@ -133,7 +141,7 @@ public class Muoto {
     /**
      * Tarkistaa meneekö yksikään annetun muodon paloista sivureunojen yli.
      *
-     * @return
+     * @return True, jos annettu muoto menee reunan yli, False, jos ei.
      */
     public boolean meneeReunanYli(Muoto muoto) {
         for (Pala tarkistettava : muoto.getPalat()) {
@@ -147,7 +155,7 @@ public class Muoto {
     /**
      * Tekee oliosta kopion, ja tarkistaa osuuko kopio reunoihin.
      *
-     * @return
+     * @return True, jos osuu reunaan, False jos ei.
      */
     public boolean osuuReunaan() {
         Muoto kopio = kopioiMuoto();
@@ -163,7 +171,7 @@ public class Muoto {
     /**
      * Tarkistaa osuuko yksikään muodon paloista alareunaan.
      *
-     * @return
+     * @return True, jos osuu alareunaan, False jos ei.
      */
     public boolean osuuAlareunaan() {
         for (Pala tarkistettava : palat) {
@@ -177,7 +185,7 @@ public class Muoto {
     /**
      * Tarkistaa jääkö joku muodon osista ylärajan yläpuolelle
      *
-     * @return
+     * @return True, jos jää, False, jos ei.
      */
     public boolean meneeYlarajanYli() {
         for (Pala tarkistettava : palat) {

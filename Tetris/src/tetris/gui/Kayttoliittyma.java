@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import tetris.peli.Peli;
 
 /**
- * Tetriksen käyttöliittymä
+ * Tetriksen käyttöliittymä, luo tarvittavat komponentit.
  *
  * @author tomminikkanen
  */
@@ -21,6 +21,12 @@ public class Kayttoliittyma implements Runnable {
         this.tetrisPeli = peli;
     }
 
+    /**
+     * Luo uuden piirtoalustan ja lisää sen annettuun containeriin. Kytkee myös
+     * näppäimistönkuuntelijan käyttöliittymään.
+     *
+     * @param container
+     */
     public void luoKomponentit(Container container) {
         Piirtoalusta uusiAlusta = new Piirtoalusta(this.tetrisPeli);
         this.alusta = uusiAlusta;

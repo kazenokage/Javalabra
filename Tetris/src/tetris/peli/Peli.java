@@ -56,7 +56,7 @@ public class Peli extends Timer implements ActionListener {
      *
      * Kertoo jatkuuko peli
      *
-     * @return
+     * @return True, jos peli jatkuu, False jos ei.
      */
     public boolean jatkuu() {
         return jatkuu;
@@ -71,6 +71,9 @@ public class Peli extends Timer implements ActionListener {
         stop();
     }
 
+    /**
+     * Nollaa pelin parametrit ja aloittaa sen alusta.
+     */
     public void aloitaAlusta() {
         this.jatkuu = true;
         this.tauko = false;
@@ -83,6 +86,9 @@ public class Peli extends Timer implements ActionListener {
         start();
     }
 
+    /**
+     * Siirtää pelin tauolle.
+     */
     public void tauko() {
         if (tauko) {
             tauko = false;
@@ -114,7 +120,7 @@ public class Peli extends Timer implements ActionListener {
         aktiivinenMuoto = uusiMuoto;
 
     }
-    
+
     /**
      * Lopettaa käynnissä olevan pelin.
      */
@@ -161,7 +167,7 @@ public class Peli extends Timer implements ActionListener {
     }
 
     /**
-     * Liikuttaa aktiivista muotoa, jos mahdollista
+     * Liikuttaa aktiivista muotoa, jos mahdollista.
      */
     public void liikutaAktiivista() {
         if (aktiivinenMuoto.osuuAlareunaan() || aktiivinenMuoto.osuuMuotoihin(staattiset)) {
@@ -174,9 +180,8 @@ public class Peli extends Timer implements ActionListener {
     }
 
     /**
-     * Tarkistaa onko rivi täynnä
-     *
-     * @return
+     * Tarkistaa onko rivejä täynnä. Jos rivi on täysi, poistetaan se,
+     * tiputetaan yläpuolella olevia rivejä, ja lisätään pisteitä.
      */
     public void tarkistaRivit() {
         ArrayList<Integer> taydetRivit = new ArrayList<>();

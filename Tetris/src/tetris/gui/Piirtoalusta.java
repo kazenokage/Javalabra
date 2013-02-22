@@ -12,7 +12,9 @@ import tetris.domain.Pala;
 import tetris.peli.Peli;
 
 /**
- * Piirtoalusta tetrikselle
+ * Piirtoalusta tetrikselle.
+ *
+ * Hoitaa elementtien varsinaisen piirtämisen.
  *
  * @author tomminikkanen
  */
@@ -30,6 +32,11 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         pisteFontti = new Font("Helvetica", Font.PLAIN, 18);
     }
 
+    /**
+     * Piirretään tausta, muodot ja pisteet.
+     *
+     * @param g
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
