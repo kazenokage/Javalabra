@@ -2,6 +2,7 @@ package tetris.io;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,7 +18,21 @@ public class TiedostoKasittelija {
 
     public TiedostoKasittelija() {
         highScoreList = new File("highscore.txt");
+        if (!highScoreList.exists()) {
+            try {
+                highScoreList.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Tiedostoa ei saatu luotua!");
+            }
+        }
+        try {
+            kirjoittaja = new FileWriter(highScoreList);
+        } catch (IOException ex) {
+            System.out.println("Kirjoittajan luonti ei onnistunut");
+        }
     }
+    
+    
     /**
      * Lukee highscoret tiedostosta, ja palauttaa ne ArrayListinä.
      * 
@@ -25,15 +40,12 @@ public class TiedostoKasittelija {
      * @throws Exception 
      */
     public ArrayList<Integer> lueHighscore() throws Exception {
+        ArrayList<Integer> pisteet = new ArrayList<>();
         Scanner lukija = new Scanner(highScoreList);
-        System.out.println(highScoreList.isFile());
-        System.out.println(highScoreList.length());
-        System.out.println("Yritetään lukea:");
         while (lukija.hasNextLine()) {
-            System.out.println("Seuraava rivi on:");
-            System.out.println(lukija.nextLine());
+            pisteet.add(Integer.parseInt(lukija.nextLine()));
         }
-        return null;
+        return pisteet;
     }
     
     
@@ -43,5 +55,6 @@ public class TiedostoKasittelija {
      * @param pisteet tallennettavat pisteet
      */
     public void tallennaHighscore(ArrayList<Integer> pisteet) {
+
     }
 }

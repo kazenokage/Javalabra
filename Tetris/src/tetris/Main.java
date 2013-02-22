@@ -6,13 +6,13 @@ import tetris.gui.*;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         System.out.println("Käynnistetään Tetris...");
         Peli uusiTetris = new Peli();
 
         Kayttoliittyma tetrisGui = new Kayttoliittyma(uusiTetris);
         SwingUtilities.invokeLater(tetrisGui);
-        
+
         while (tetrisGui.getPaivitettava() == null) {
             try {
                 Thread.sleep(1000);
@@ -20,8 +20,8 @@ public class Main {
                 System.out.println("Piirtoalustaa ei ole vielä luotu.");
             }
         }
-        
-        uusiTetris.setPaivitettava(tetrisGui.getPaivitettava());       
+
+        uusiTetris.setPaivitettava(tetrisGui.getPaivitettava());
         uusiTetris.start();
 
 

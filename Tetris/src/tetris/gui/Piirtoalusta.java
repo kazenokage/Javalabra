@@ -37,17 +37,17 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         Graphics2D g2d = (Graphics2D) g;
 
         g.drawImage(taustakuva, 0, 0, this);
-        
+
         for (Pala pala : tetrisPeli.getStaattiset()) {
             g.setColor(pala.getVari());
             g.drawImage(pala.getKuva(), pala.getX(), pala.getY(), null);
         }
-        
+
         for (Pala pala : tetrisPeli.getAktiivinenMuoto().getPalat()) {
             g.setColor(pala.getVari());
             g.drawImage(pala.getKuva(), pala.getX(), pala.getY(), null);
         }
-        
+
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2d.setFont(pisteFontti);
         g2d.setColor(Color.GRAY);

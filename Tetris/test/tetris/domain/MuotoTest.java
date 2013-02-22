@@ -13,6 +13,7 @@ public class MuotoTest {
     Muoto testiMuoto2;
     Muoto testiMuoto3;
     List<Muoto> testiMuodot;
+    List<Pala> testiPalat;
     MuotoGeneraattori generaattori;
 
     public MuotoTest() {
@@ -24,9 +25,15 @@ public class MuotoTest {
         testiMuoto = generaattori.luoUusi(0, 0);
         testiMuoto2 = generaattori.luoUusi(0, 10);
         testiMuoto3 = generaattori.luoUusi(0, 20);
-        testiMuodot = new ArrayList<Muoto>();
+        testiMuodot = new ArrayList<>();
+        testiPalat = new ArrayList<>();
         testiMuodot.add(testiMuoto2);
         testiMuodot.add(testiMuoto3);
+        for (Muoto muoto : testiMuodot) {
+            for (Pala pala : muoto.getPalat()) {
+                testiPalat.add(pala);
+            }
+        }
     }
 
     @Test
@@ -47,15 +54,24 @@ public class MuotoTest {
     
     @Test
     public void havaitaankoAlareuna() {
-        for (int i = 0; i < 17; i++) {
+        for (int i = 0; i < 19; i++) {
             testiMuoto.liiku();
         }
-        assertEquals(false, testiMuoto.osuuAlareunaan());
+        assertEquals(true, testiMuoto.osuuAlareunaan());
+    }
+    
+    @Test
+    public void kopioidaankoOikein() {
+        Muoto kopio = testiMuoto.kopioiMuoto();
+        assertEquals(testiMuoto.getPalat().get(0).getX(), kopio.getPalat().get(0).getX());
+        assertEquals(testiMuoto.getPalat().get(0).getY(), kopio.getPalat().get(0).getY());
+        assertEquals(testiMuoto.getPalat().get(1).getX(), kopio.getPalat().get(1).getX());
+        assertEquals(testiMuoto.getPalat().get(1).getY(), kopio.getPalat().get(1).getY());
     }
     
     @Test
     public void havaitaankoTormays() {
-        assertEquals(false,testiMuoto.osuuMuotoihin(testiMuodot));
+        assertEquals(false,testiMuoto.osuuMuotoihin(testiPalat));
     }
     
     

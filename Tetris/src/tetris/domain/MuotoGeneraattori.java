@@ -19,10 +19,9 @@ public class MuotoGeneraattori {
     private Color[] varit;
     private Image[] palaKuvat;
 
-    /** 
+    /**
      * Konstruktori määrittelee muotomatriisin ja värit/kuvat paloille.
      */
-    
     public MuotoGeneraattori() {
         random = new Random();
         muodot = new int[][]{

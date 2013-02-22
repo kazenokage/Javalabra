@@ -8,7 +8,7 @@ package tetris.domain;
  */
 public class MuotoKaantaja {
 
-    public int[][][] kaantoMatriisi;
+    private int[][][] kaantoMatriisi;
 
     public MuotoKaantaja() {
         this.kaantoMatriisi = new int[][][]{
